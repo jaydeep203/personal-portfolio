@@ -36,6 +36,7 @@ export default function ImageComp({
         className='
           mx-auto
           w-[40%]
+          mb-3
         '
     >
       <Slider {...settings}>

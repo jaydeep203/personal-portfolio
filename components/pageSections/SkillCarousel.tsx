@@ -42,9 +42,7 @@ export default class AutoPlay extends Component {
       className='
         h-[40vh]
         w-full
-        border-[1px]
-        border-white
-        border-solid
+        mt-3
       '
       >
           <h2 className="text-white ml-5 mt-4 text-xl">Tech stacks</h2>
