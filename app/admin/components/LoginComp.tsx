@@ -22,8 +22,7 @@ const LoginComp = () => {
     }, [setIsVisible, session?.status]);
 
   
-    const submitHandler = async(e:any)=>{
-      e.preventDefault();
+    const submitHandler = async()=>{
       setIsDisabled(true);
 
       const res = await signIn("credentials", {
