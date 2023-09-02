@@ -17,9 +17,11 @@ const ImageComponent:React.FC<ImageComponentProps> = ({
                 relative
                 overflow-hidden
                 mx-auto
-                w-[70%]
-                h-[30rem]
-                p-5
+                w-full
+                h-[30vh]
+                md:w-[70%]
+                md:h-[30rem]
+                md:p-5
                 rounded-2xl
             '
         >

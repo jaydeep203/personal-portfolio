@@ -4,7 +4,7 @@ import {FiMenu} from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa6';
 import {BsLinkedin} from "react-icons/bs";
 import {HiOutlineMail} from "react-icons/hi";
-import { AiFillHtml5 } from "react-icons/ai";
+import { AiFillHtml5, AiOutlineDownCircle } from "react-icons/ai";
 import { DiCss3 } from 'react-icons/di';
 import { SiTailwindcss, SiJavascript, SiSupabase, SiPrisma } from 'react-icons/si';
 import { 
@@ -104,4 +104,5 @@ export {
     FaGithub,
     BsLinkedin,
     HiOutlineMail,
+    AiOutlineDownCircle
 };

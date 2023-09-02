@@ -13,27 +13,33 @@ const Bio:React.FC<BioProps> = ({
   return (
     <div className='
       w-full
-      h-screen
       flex
       justify-center
       items-center
     '>
       <div
         className='
+          group
           w-full
-          p-6
-          px-10
-          m-8
+          py-2
+          m-3
+          md:p-6
+          md:px-10
+          md:m-8
+          gap-3
           grid
-          grid-cols-2
+          grid-cols-1
+          md:grid-cols-2
+
         '
       >
         <div
           className='
-            bg-neutral-400
-            p-3
             m-auto
-            w-[70%]
+            w-full
+            py-3
+            md:p-3
+            md:w-[70%]
             rounded-xl
           '
         >
@@ -45,7 +51,10 @@ const Bio:React.FC<BioProps> = ({
             className='
               rounded-3xl
               mx-auto
-              hover:scale-110
+              group-hover:border-white
+              group-hover:border-[1px]
+              group-hover:border-solid
+              group-hover:scale-110
               transition
             '
           />
@@ -57,7 +66,7 @@ const Bio:React.FC<BioProps> = ({
         >
           <h1 className='text-neutral-100 font-bold text-xl'>Bio</h1>
           <hr className='text-white' />
-          <p className='p-5 text-neutral-300'>
+          <p className='p-5 text-neutral-300 '>
             {bio}
           </p>
           

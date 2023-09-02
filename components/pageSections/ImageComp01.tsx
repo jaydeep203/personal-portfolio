@@ -17,7 +17,6 @@ export default function ImageComp({
 }:ImageCompProps){
 
   const settings = {
-      dots: true,
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
@@ -35,7 +34,8 @@ export default function ImageComp({
     <div 
         className='
           mx-auto
-          w-[40%]
+          w-[90%]
+          md:w-[40%]
           mb-3
         '
     >
@@ -47,7 +47,7 @@ export default function ImageComp({
             '>
               <Image
                 src={project.image || "/BackgroundImg.jpeg"}
-                className="w-[40vw] border-[1px] border-solid border-white rounded-[1.7rem] "
+                className="md:w-[40vw] w-[80vw] border-[1px] border-solid border-white rounded-[1.7rem] "
                 alt="Images"
                 height={300}
                 width={300}

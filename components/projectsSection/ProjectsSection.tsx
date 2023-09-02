@@ -38,6 +38,7 @@ const ProjectsSection:React.FC<ProjectsSectionProps> = ({
         className='
             w-full
             rounded-lg
+            group
             hover:bg-slate-900
             hover:border-white
             hover:border-solid
@@ -48,7 +49,8 @@ const ProjectsSection:React.FC<ProjectsSectionProps> = ({
         <div
             className='
                 w-full
-                p-8
+                p-3
+                md:p-8
                 flex
                 flex-col
                 gap-10
@@ -80,9 +82,13 @@ const ProjectsSection:React.FC<ProjectsSectionProps> = ({
                                 font-semibold
                                 text-sm
                                 rounded-md
+                                transition
                                 bg-slate-800
                                 hover:bg-slate-700
                                 hover:text-neutral-300
+                                group-hover:border-white
+                                group-hover:border-[1px]
+                                group-hover:border-solid
                             '
                             >
                                 Show more work
@@ -97,9 +103,13 @@ const ProjectsSection:React.FC<ProjectsSectionProps> = ({
                                     font-semibold
                                     text-sm
                                     rounded-md
+                                    transition
                                     bg-slate-800
                                     hover:bg-slate-700
                                     hover:text-neutral-300
+                                    group-hover:border-white
+                                    group-hover:border-[1px]
+                                    group-hover:border-solid
                             '
                             >
                                 Visit website

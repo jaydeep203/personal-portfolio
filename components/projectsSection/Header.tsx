@@ -23,12 +23,18 @@ const Header:React.FC<HeaderProps> = ({
         flex
         flex-col
     '>
-        <div className='flex flex-row w-full'>
+        <div className='
+            flex 
+            flex-col
+            md:flex-row 
+            w-full
+        '>
             <div 
                 className='
                     flex
                     flex-col
-                    w-[70%]
+                    w-[90%]
+                    md:w-[70%]
                     p-1
                     gap-4
                 '
@@ -39,22 +45,23 @@ const Header:React.FC<HeaderProps> = ({
                     Tagline
                 </div>
                 <div 
-                    className='mx-1 font-bold text-white text-3xl'
+                    className='mx-1 font-bold text-white text-lg md:text-3xl'
                 >
                     {pname}
                 </div>
-                <div className='mx-1 w-[80%]'>
+                <div className='w-full md:mx-1 md:w-[80%]'>
                     {description}
                 </div>
             </div>
             <div 
                 className='
-                    w-[30%]
+                    w-[50%]
+                    md:w-[30%]
                     p-1
                     gap-2
                     flex
                     flex-col
-                    items-center
+                    md:items-center
                 '
             >
                 <h1 

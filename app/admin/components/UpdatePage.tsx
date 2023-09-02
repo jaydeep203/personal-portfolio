@@ -91,17 +91,21 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
     >
         <div 
             className='
-                w-[80%]
+                w-full
+                md:w-[80%]
                 mx-auto
-                p-5
+                p-1
+                md:p-5
             '   
         >
             <div
                 className='
-                    w-[70%]
+                    w-full
+                    md:w-[70%]
                     mx-auto
                     gap-5
-                    p-5
+                    p-1
+                    md:p-5
                     bg-neutral-100
                     rounded-md
                 '
@@ -109,7 +113,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                 <form 
                     onSubmit={handleSubmit(onSubmit)}
                     className='
-                        mx-5
+                        md:mx-5
                         gap-5
                     '
                 >
@@ -127,7 +131,9 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         className='
                             text-neutral-400
                             mx-auto
-                            w-[80%]
+                            w-full
+                            p-1
+                            md:w-[80%]
                             gap-3
                         '
                     >
@@ -148,7 +154,9 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         className='
                         text-neutral-400
                         mx-auto
-                        w-[80%]
+                        w-full
+                        p-1
+                        md:w-[80%]
                         gap-3
                     '
                     >
@@ -169,7 +177,9 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         className='
                         text-neutral-400
                         mx-auto
-                        w-[80%]
+                        w-full
+                        p-1
+                        md:w-[80%]
                         gap-3
                     '
                     >
@@ -232,7 +242,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         <hr className='text-neutral-400' />
                         <Button
                             isDisabled={isLoading}
-                            style='w-[12rem]'
+                            style='md:w-[12rem]'
                             icon={AiOutlinePlus}
                             label='Add project'
                             onClick={() => {

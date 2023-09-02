@@ -1,7 +1,10 @@
+"use client";
 import React from 'react'
 import { Button } from './exportLayout'
+import { useRouter } from 'next/navigation';
 
 const GetInTouchSection = () => {
+    const router = useRouter();
   return (
     <div
         className='
@@ -19,7 +22,8 @@ const GetInTouchSection = () => {
             className='
                 font-bold
                 text-white
-                text-5xl
+                text-3xl
+                md:text-5xl
                 flex
                 flex-col
                 justify-center
@@ -32,6 +36,7 @@ const GetInTouchSection = () => {
         </p>
         <Button
             label='Get in touch'
+            onClick={() => router.push("https://www.linkedin.com/in/jaydeep-deshpande-68601822a/")}
         />
     </div>
   )
