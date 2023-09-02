@@ -12,7 +12,7 @@ const header = () => {
         },
         {
             label:"Work",
-            href:"/work"
+            href:"/projects"
         },
         {
             label:"Expertise",
@@ -23,8 +23,8 @@ const header = () => {
             href:"/about"
         },
         {
-            label:"Blog",
-            href:"/blog"
+            label:"Admin",
+            href:"/admin"
         },
     ];
 

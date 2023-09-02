@@ -1,6 +1,8 @@
 import ProjectsSection from '@/components/projectsSection/ProjectsSection'
 import React from 'react'
-import getProjects from '../actions/getProjects'
+import getProjects from '../actions/getProjects';
+
+export const revalidate =0;
 
 const Page = async() => {
 
