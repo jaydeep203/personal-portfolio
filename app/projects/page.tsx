@@ -1,6 +1,7 @@
 import ProjectsSection from '@/components/projectsSection/ProjectsSection'
 import React from 'react'
 import getProjects from '../actions/getProjects';
+import getTechstack from '../actions/getTechstack';
 
 export const revalidate =0;
 

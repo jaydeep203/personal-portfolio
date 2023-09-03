@@ -1,17 +1,18 @@
 "use client";
 
-import { Project } from '@prisma/client';
 import React from 'react';
-import { IconType } from 'react-icons';
+import { skillsIcons } from '../icons/icons';
 
 interface HeaderProps{
-    icons:IconType[];
+    techs?:string[];
     pname?:string | null;
     description?:string | null;
 }
 
+
+
 const Header:React.FC<HeaderProps> = ({
-    icons,
+    techs,
     pname,
     description
 }) => {
@@ -90,23 +91,30 @@ const Header:React.FC<HeaderProps> = ({
             '
         >
             {
-                icons.map((Icon, i)=> (
-                   <div 
-                    key={i}
-                    className='
-                        bg-neutral-900
-                        p-1
-                        m-1
-                        rounded-full
-                        cursor-pointer
-                        hover:scale-110
-                    '
-                   >
-                        <Icon 
-                            className='text-white hover:text-green-500'
-                            size={30}
-                        />
-                   </div>
+                skillsIcons.map(({Icon, name, color}, i)=> (
+                    < >
+                    {
+                        techs?.includes(name)  && (
+                                <div 
+                                    key={i}
+                                    className='
+                                        bg-neutral-900
+                                        p-1
+                                        m-1
+                                        rounded-full
+                                        cursor-pointer
+                                        hover:scale-110
+                                '
+                    >
+                                <Icon 
+                                    className='text-white hover:text-green-500'
+                                    size={30}
+                                />    
+                    </div>
+                        )
+                    }
+                    </>
+                   
                 ))
             }
         </div>

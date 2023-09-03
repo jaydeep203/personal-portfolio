@@ -10,19 +10,25 @@ export async function POST(
     try {
 
         const currentUser = await getCurrentUser();
+        if(!currentUser){
+            return new NextResponse("Unauthorized!", {status:400});
+        }
+
         const body = await request.json();
         const {
             pname,
             description,
             link,
-            image
+            image,
+            techs
         } = body;
 
-        if(!pname || !description){
+        if(!pname || !description || techs.length === 0){
             return new NextResponse("Required all fields", {status:400});
         }
 
-        const user = await prismadb.project.create({
+
+        const project = await prismadb.project.create({
             data:{
                 pname,
                 description,
@@ -31,8 +37,17 @@ export async function POST(
                 userId:currentUser?.id as string
             }
         });
+
+        const projects = await prismadb.techstack.create({
+            data:{
+                techs:techs,
+                userId:currentUser?.id as string,
+                projectId:project.id as string
+            }
+        });
+
         
-        return NextResponse.json(user);
+        return NextResponse.json(projects);
         
     } catch (error) {
         console.log(error);

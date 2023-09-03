@@ -5,8 +5,8 @@ import { FaGithub } from 'react-icons/fa6';
 import {BsLinkedin} from "react-icons/bs";
 import {HiOutlineMail} from "react-icons/hi";
 import { AiFillHtml5, AiOutlineDownCircle } from "react-icons/ai";
-import { DiCss3 } from 'react-icons/di';
-import { SiTailwindcss, SiJavascript, SiSupabase, SiPrisma } from 'react-icons/si';
+import { DiCss3, DiSass } from 'react-icons/di';
+import { SiTailwindcss, SiJavascript, SiSupabase, SiPrisma, SiExpress } from 'react-icons/si';
 import { 
     BiLogoTypescript, 
     BiLogoReact, 
@@ -92,6 +92,16 @@ export const skillsIcons = [
     {
         Icon: FaGithub,
         name: "Github",
+        color: "text-white"
+    },
+    {
+        Icon: DiSass,
+        name: "SCSS",
+        color: "text-rose-500"
+    },
+    {
+        Icon: SiExpress,
+        name: "ExpressJs",
         color: "text-white"
     }
       

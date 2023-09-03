@@ -10,10 +10,12 @@ import { toast } from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 import { CldUploadButton } from 'next-cloudinary';
 import Image from 'next/image';
+import { skillsIcons } from '../icons/icons';
 
 const ProjectModal = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [image, setImage] = useState("");
+    const [techs, setTechs] = useState<string[]>([]);
     const projectModal = useProjectModal();
     const router = useRouter();
 
@@ -39,6 +41,7 @@ const ProjectModal = () => {
             setIsLoading(true);
             axios.post("/api/update/projects", {
                 image,
+                techs,
                 ...values
             })
             .then(() => {
@@ -61,6 +64,10 @@ const ProjectModal = () => {
         }
 
     }
+
+    const handleRemove = useCallback(() => {
+        setTechs(techs.filter((tech)=> tech !== techs[techs.length - 1]))
+    },[techs]);
 
 
 
@@ -174,6 +181,66 @@ const ProjectModal = () => {
                         '
                     />
                 </CldUploadButton>
+                
+            </div>
+            <hr className='text-white' />
+            <div
+                className='
+                    py-3
+                    w-full
+                    my-3
+                    mx-auto
+                    text-white
+                    text-lg
+                    grid
+                    grid-cols-2
+                    lg:grid-cols-3
+                '
+            >
+                {
+                    techs.map((tech, i) => (
+                        <p key={i} className='text-white'>{tech}, </p>
+                    ))
+                }
+            </div>
+            <hr className='text-white' />
+            <div className='
+                py-3
+                w-full
+                my-3
+                mx-auto
+            '>
+                <button 
+                    type='button'
+                onClick={handleRemove}
+                className='
+                    bg-sky-500
+                    rounded-md
+                    text-white
+                    p-3
+                '>Delete</button>
+            </div>
+            <hr className='text-white' />
+            <div className='
+                py-3
+                w-full
+                mx-auto
+                my-2
+                grid
+                grid-cols-1
+                md:grid-cols-2
+            '>
+                {
+                    skillsIcons.map(({Icon, name, color}, i) => (
+                        <p key={i} onClick={() => {
+                            setTechs([...techs, name]);
+                        }} className={`py-2 m-1
+                            ${techs.includes(name)? "text-neutral-400 hidden": "text-white cursor-pointer"}
+                        `}>
+                            <Icon size={30} className={color} /> {name}
+                        </p>
+                    ))
+                }
                 
             </div>
         </div>

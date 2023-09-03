@@ -49,14 +49,11 @@ if(!isOpen){
           mx-auto
           lg:max-w-3xl
           h-full
-          lg:h-auto
         '>
             {/* content */}
             <form 
               onSubmit={handleSubmit}
               className='
-                lg:mt-[4rem]
-                lg:top-[7rem]
                 lg:overflow-y-auto
                 border-0
                 rounded-lg
