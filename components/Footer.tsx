@@ -43,7 +43,7 @@ const Footer = () => {
           className='gap-2 p-3 flex flex-col items-center'
         >
           <h1 className='text-white font-bold text-lg'>Contact</h1>
-          <a href='mailto:jaydeepdeshpande03outlook.com' className='text-neutral-300'>jaydeepdeshpande03@outlook.com</a>
+          <a href='mailto:jaydeepdeshpande03outlook.com' className='text-neutral-300 hover:underline'>jaydeepdeshpande03@outlook.com</a>
         </div>
         <div className='gap-3 flex flex-col items-center p-3'>
           <h1 className='text-white font-bold text-lg'>Follow us</h1>

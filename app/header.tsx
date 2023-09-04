@@ -18,8 +18,8 @@ const header = () => {
             href:"/projects"
         },
         {
-            label:"Expertise",
-            href:"/expertise"
+            label:"Resume",
+            href:"/certificate"
         },
         {
             label:"About",
@@ -44,7 +44,7 @@ const header = () => {
         justify-evenly
         z-10
         bg-gradient-to-b
-        from-sky-600
+        from-neutral-900
     '>
         <div className='flex items-center justify-center p-4'>
             <Link href={"/"} className='flex text-white items-center gap-2 text-2xl'><FaEnvira size={30} color='green' />Jaydeep</Link>

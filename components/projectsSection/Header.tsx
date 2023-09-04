@@ -107,7 +107,7 @@ const Header:React.FC<HeaderProps> = ({
                                 '
                     >
                                 <Icon 
-                                    className='text-white hover:text-green-500'
+                                    className="text-white hover:text-green-500"
                                     size={30}
                                 />    
                     </div>

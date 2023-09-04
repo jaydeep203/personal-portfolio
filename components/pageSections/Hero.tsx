@@ -73,7 +73,12 @@ const Hero = () => {
 
         </div>
 
-        <div>
+        <div 
+            className='
+            text-neutral-300
+            transition
+            group-hover:translate-y-12'
+        >
             <AiOutlineDownCircle 
                 size={40}
                 className='
@@ -82,9 +87,9 @@ const Hero = () => {
                     font-bold
                     transition
                     group-hover:scale-110
-                    group-hover:translate-y-12
                 '
             />
+            Scroll
         </div>
     </div>
   )

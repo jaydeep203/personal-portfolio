@@ -35,19 +35,21 @@ export default function ImageComp({
         className='
           mx-auto
           w-[90%]
-          md:w-[40%]
+          md:w-[55%]
           mb-3
         '
     >
+      <h1 className='text-white mx-3 my-2 p-2 text-lg md:text-2xl font-bold'>My Projects</h1>
+      <p className='text-neutral-300 mx-3 mb-2 px-2'>Click on Imge to Visit the project</p>
       <Slider {...settings}>
         
         {
           projects?.map((project) => (
-            <Link href={project.link || "/"} key={project.pname} className='
+            <Link href={project.link || "/"} key={project.pname} className=' my-auto
             '>
               <Image
                 src={project.image || "/BackgroundImg.jpeg"}
-                className="md:w-[40vw] w-[80vw] border-[1px] border-solid border-white rounded-[1.7rem] "
+                className="md:w-[50vmax] w-[80vw] border-[1px] border-solid border-white rounded-[1.7rem] "
                 alt="Images"
                 height={300}
                 width={300}
@@ -58,6 +60,7 @@ export default function ImageComp({
         }
         
       </Slider>
+      
     </div>
   )
 }

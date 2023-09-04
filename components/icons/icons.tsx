@@ -3,10 +3,12 @@ import {FaEnvira} from 'react-icons/fa6';
 import {FiMenu} from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa6';
 import {BsLinkedin} from "react-icons/bs";
+import {FaHackerrank} from "react-icons/fa";
+
 import {HiOutlineMail} from "react-icons/hi";
 import { AiFillHtml5, AiOutlineDownCircle } from "react-icons/ai";
 import { DiCss3, DiSass } from 'react-icons/di';
-import { SiTailwindcss, SiJavascript, SiSupabase, SiPrisma, SiExpress } from 'react-icons/si';
+import { SiTailwindcss, SiJavascript, SiSupabase, SiPrisma, SiExpress, SiCoursera } from 'react-icons/si';
 import { 
     BiLogoTypescript, 
     BiLogoReact, 
@@ -114,5 +116,7 @@ export {
     FaGithub,
     BsLinkedin,
     HiOutlineMail,
-    AiOutlineDownCircle
+    AiOutlineDownCircle,
+    FaHackerrank,
+    SiCoursera
 };

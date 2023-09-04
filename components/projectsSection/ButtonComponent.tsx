@@ -2,14 +2,19 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface ButtonComponentProps{
+    lable?:string;
     link?:string| null;
+    style?:string;
     isButton?:boolean;
 }
 
 const ButtonComponent:React.FC<ButtonComponentProps> = ({
+    lable,
     link,
+    style,
     isButton
 }) => {
 
@@ -46,9 +51,10 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({
                                 Show more work
                             </button>
                     ) : (
-                            <Link
+                            <a
+                                target='_blank'
                                 href={link || "/" }
-                                className='
+                                className={twMerge(`
                                     px-4
                                     py-3
                                     text-neutral-100
@@ -62,10 +68,12 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({
                                     group-hover:border-white
                                     group-hover:border-[1px]
                                     group-hover:border-solid
-                            '
+                                `, 
+                                    style
+                                )}
                             >
-                                Visit website
-                            </Link>
+                                { lable || "Visit website"}
+                            </a>
                     )
                 }
                 
