@@ -57,8 +57,11 @@ const header = () => {
             w-[35vw]
         '>
             {
-                navs.map((item)=>(
-                    <Nav key={item.label} label={item.label} href={item.href} />
+                navs.map((item, i)=>(
+                    <div key={i} className='flex items-center'>
+                        <Nav  label={item.label} href={item.href} />
+                    </div>
+                    
                 ))
             }
         </article>

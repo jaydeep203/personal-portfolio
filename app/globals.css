@@ -8,3 +8,31 @@ body,
 :root{
     width: 100%;
 }
+
+
+.flare {
+    position: fixed;
+    border: 2px solid #62ebfdfe;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 999999  ;
+    backdrop-filter: blur(1px);
+    background-color: #0000005e;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    cursor: none ; 
+  }
+
+  @media screen and (max-width: 768px) {
+    .flare {
+      width: 0;
+      height: 0;
+      transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
+        opacity 0.2s ease-in-out;
+    }
+  }
+  .flare.pointer {
+    opacity: 0 !important;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  }

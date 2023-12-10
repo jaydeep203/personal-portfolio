@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import ToasterContext from '@/components/context/ToasterContext';
 import NextAuthProvider from './providers/NextAuthProvider';
 import ProjectModal from '@/components/modal/ProjectModal';
+import FlareCursor from '@/components/Layout/FlareCursor';
 
 export const metadata = {
   title: 'Portfolio App',
@@ -22,6 +23,7 @@ export default function RootLayout({
         <ToasterContext />
         <NextAuthProvider>
           <ProjectModal />
+          <FlareCursor />
           <Header />
           {children}
           <Footer />
