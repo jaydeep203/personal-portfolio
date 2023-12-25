@@ -35,9 +35,9 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
         reset
     } = useForm<FieldValues>({
         defaultValues:{
-            name:"",
-            newEmail:"",
-            bio:""
+            name:currentUser?.name || "",
+            newEmail:currentUser?.email || "",
+            bio:currentUser?.bio || ""
         }
     });
 

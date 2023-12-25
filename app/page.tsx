@@ -6,9 +6,12 @@ import getProjects from './actions/getProjects';
 import getUser from './actions/getUser';
 
 export default async function Home() {
+  
 
   const projects = await getProjects();
   const user = await getUser();
+
+
 
   const project = projects?.[0];
 
