@@ -10,24 +10,28 @@ import { CldUploadButton } from 'next-cloudinary';
 import { BiSolidEdit } from "react-icons/bi";
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { User } from '@prisma/client';
+import { Project, User } from '@prisma/client';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { AiOutlinePlus } from 'react-icons/ai';
 import useProjectModal from '@/hooks/useProjectModal';
+import Card from './Card';
 
 interface UpdatePageProps{
     currentUser:User | null;
+    projects: Project[];
 }
 
 const UpdatePage:React.FC<UpdatePageProps> = ({
-    currentUser
+    currentUser,
+    projects
 }) => {
     const [avatar, setAvatar] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const projectModal = useProjectModal();
     
+
 
     const {
         register,
@@ -250,6 +254,33 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                             }}
                         />
                     </div>
+
+                {/* <Card
+                    projects={projects}
+                /> */}
+
+                <div 
+                    className='
+                        p-4
+                        gap-5
+                        flex
+                        w-full
+                        flex-row
+                        overflow-x-scroll
+                    '
+                >
+                    {
+                        projects?.map((project)=>{
+                            return (
+                                <div key={project.id}>
+                                    <Card projects={project} />
+                                </div>
+                            )
+                                
+                        })
+                        
+                    }
+                </div>
                 
             </div>
         </div>
@@ -257,4 +288,4 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
   )
 }
 
-export default UpdatePage
+export default UpdatePage;

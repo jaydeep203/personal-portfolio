@@ -4,20 +4,21 @@ import Link from 'next/link';
 interface NavProps {
     href:string;
     label:string;
+    active:boolean;
 }
 
 
-const Nav = ({ href, label}:NavProps) => {
+const Nav = ({active, href, label}:NavProps) => {
   return (
     <Link 
-        className='
+        className={`
             my-auto
-            text-white
             mx-0
             text-lg
             hover:text-[#9580ff]
             transition
-        '
+            ${active? "text-[#9580ff]" : "text-white"}
+        `}
     href={href}>{label}</Link>
   )
 }

@@ -34,10 +34,10 @@ const Button = ({
             onClick={onClick}
             className={twMerge(
                 `px-4
-              flex
-              flex-row
-              justify-center
-              items-center
+                flex
+                flex-row
+                justify-center
+                items-center
                 py-3
                 text-neutral-100
                 font-semibold

@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
 import prismadb from "@/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
+import getProject from "@/app/actions/getProject";
+
+
+
 
 
 export async function POST(

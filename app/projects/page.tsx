@@ -9,6 +9,8 @@ const Page = async() => {
 
   const projects = await getProjects();
 
+  
+
   return (
     <div
       className='

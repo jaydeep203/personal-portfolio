@@ -2,10 +2,12 @@ import React from 'react';
 import LoginComp from './components/LoginComp';
 import UpdatePage from './components/UpdatePage';
 import getCurrentUser from '../actions/getCurrentUser';
+import getProjects from '../actions/getProjects';
 
 const page = async() => {
 
   const currentUser = await getCurrentUser();
+  const projects = await getProjects();
 
   return (
     <div className="
@@ -25,7 +27,7 @@ const page = async() => {
           mt-[5rem]
         '
       >
-        <UpdatePage currentUser={currentUser} />
+        <UpdatePage projects={projects} currentUser={currentUser} />
       </div>
     </div>
   )

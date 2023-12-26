@@ -11,14 +11,14 @@ const getProjects = async() => {
         });
 
         if(!projects || projects == null){
-            return null;
+            return [];
         }
 
         return projects;
         
     } catch (error) {
         console.log(error);
-        return null;
+        return [];
     }
 
 }

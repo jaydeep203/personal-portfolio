@@ -99,6 +99,8 @@ const MenuBtn = ({navs}:ButtonProps) => {
                 
                 navs.map((nav:Record<string, any>)=>(
                     <motion.div 
+                        onClick={OnClose}
+                        key={nav.label}
                         variants={linkElements}
                         initial="hidden"
                         animate="visible"

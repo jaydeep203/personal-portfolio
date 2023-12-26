@@ -3,31 +3,37 @@ import React from 'react';
 import {Nav, Button, MenuElement} from '@/components/exportLayout';
 import Link from 'next/link';
 import { FaEnvira} from '@/components/icons/icons';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const header = () => {
     const router = useRouter();
+    const pathname = usePathname();
 
     const navs = [
         {
             label:"Home",
-            href:"/"
+            href:"/",
+            active: "/" === pathname
         },
         {
             label:"Work",
-            href:"/projects"
+            href:"/projects",
+            active: "/projects" === pathname
         },
         {
             label:"Resume",
-            href:"/certificate"
+            href:"/certificate",
+            active: "/certificate" === pathname
         },
         {
             label:"About",
-            href:"/about"
+            href:"/about",
+            active: "/about" === pathname
         },
         {
             label:"Admin",
-            href:"/admin"
+            href:"/admin",
+            active: "/admin" === pathname
         },
     ];
 
@@ -59,7 +65,7 @@ const header = () => {
             {
                 navs.map((item, i)=>(
                     <div key={i} className='flex items-center'>
-                        <Nav  label={item.label} href={item.href} />
+                        <Nav active={item.active} label={item.label} href={item.href} />
                     </div>
                     
                 ))
