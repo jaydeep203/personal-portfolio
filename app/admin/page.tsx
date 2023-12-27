@@ -3,6 +3,7 @@ import LoginComp from './components/LoginComp';
 import UpdatePage from './components/UpdatePage';
 import getCurrentUser from '../actions/getCurrentUser';
 import getProjects from '../actions/getProjects';
+import EditProjectModal from '@/components/modal/EditProjectModal';
 
 const page = async() => {
 
@@ -29,6 +30,7 @@ const page = async() => {
       >
         <UpdatePage projects={projects} currentUser={currentUser} />
       </div>
+      <EditProjectModal />
     </div>
   )
 }
@@ -36,6 +38,6 @@ const page = async() => {
 export default page
 
 export const metadata = {
-  title: 'Login',
-  description: 'Login Page for Portfolio App.'
+  title: 'Admin',
+  description: 'Admin Page for Portfolio App.'
 }

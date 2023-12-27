@@ -5,7 +5,7 @@ import { Project } from '@prisma/client';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import {BiSolidEdit, BiSolidTrash} from "react-icons/bi";
-import { useRouter } from 'next/navigation';
+import useEditProjectModal from '@/hooks/useEditProjectModal';
 
 
 
@@ -16,16 +16,15 @@ interface cardProps {
 const Card: React.FC<cardProps> = ({
     projects
 }) => {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const editProject = useEditProjectModal();
   
   const handleClick = () => {
     setIsLoading(true);
+    editProject.onSet(projects.id);
 
-    router.push(`/admin/${projects.id}`);
-
+    editProject.onOpen();
     setIsLoading(false);
-
   }
 
   return (
