@@ -38,23 +38,23 @@ export default async function Home() {
       >
 
       
-      <div className='relative -z-[1]'>
+      {/* <div className='relative -z-[1]'>
         <ParticlesBackground />
-      </div>
+      </div> */}
       
         <Hero />
         {/* <ImageComp 
           projects={projects}
         /> */}
 
-        <ProjectScroll projects={projects} />
+        {/* <ProjectScroll projects={projects} /> */}
 
         
         <Quotes
           avatar={user?.avatar}
           bio={user?.bio}
         /> 
-        <SkillCarousel />
+        {/* <SkillCarousel /> */}
         {/* put icons array */}
         <ProjectsSection
           isButton={true}
