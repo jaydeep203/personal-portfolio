@@ -4,6 +4,8 @@ import ParticlesBackground from '@/components/Particles/ParticleBackground';
 import ProjectsSection from '@/components/projectsSection/ProjectsSection';
 import getProjects from './actions/getProjects';
 import getUser from './actions/getUser';
+import {ProjectScroll} from '@/components/pageSections/projectsScroll/ProjectScroll';
+import FlareCursor from '@/components/Layout/FlareCursor';
 
 export default async function Home() {
   
@@ -41,9 +43,12 @@ export default async function Home() {
       </div>
       
         <Hero />
-        <ImageComp 
+        {/* <ImageComp 
           projects={projects}
-        />
+        /> */}
+
+        <ProjectScroll projects={projects} />
+
         
         <Quotes
           avatar={user?.avatar}

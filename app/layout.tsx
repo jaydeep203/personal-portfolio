@@ -23,7 +23,6 @@ export default function RootLayout({
         <ToasterContext />
         <NextAuthProvider>
           <ProjectModal />
-          <FlareCursor />
           <Header />
           {children}
           <Footer />

@@ -45,7 +45,8 @@ export default function ImageComp({
         
         {
           projects?.map((project) => (
-            <Link href={project.link || "/"} key={project.pname} className=' my-auto
+            <div key={project.pname}>
+            <Link href={project.link || "/"}  className=' my-auto
             '>
               <Image
                 src={project.image || "/BackgroundImg.jpeg"}
@@ -56,6 +57,11 @@ export default function ImageComp({
                 
               />
             </Link>
+
+            <h1 className='text-white'>{project.pname}</h1>
+            <p className='text-neutral-300'>{project.description}</p>
+
+            </div>
           ))
         }
         

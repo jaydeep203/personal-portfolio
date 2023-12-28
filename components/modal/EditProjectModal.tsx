@@ -13,11 +13,15 @@ import { skillsIcons } from '../icons/icons';
 import useEditProjectModal from '@/hooks/useEditProjectModal';
 
 const EditProjectModal = () => {
+    
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [image, setImage] = useState<string>("");
     const [techs, setTechs] = useState<string[]>([]);
+    const [techId, setTechId] = useState<string>("");
     const editProjectModal = useEditProjectModal();
     const router = useRouter();
+    
+
 
     const fetchData = async() => {
         try {
@@ -27,15 +31,23 @@ const EditProjectModal = () => {
               throw new Error('Network response was not ok');
             }
         
-            const data = await response.json();
+            const project = await response.json();
             reset({
-                pname:data.pname,
-                description:data.description,
-                link:data.link
-
+                pname:project.pname,
+                description:project.description,
+                link:project.link
             });
 
-            setImageLink(data.image);
+            setImage(project.image);
+
+            const techstack = await fetch(`/api/update/projects/${editProjectModal.projectId}/techstack`)
+            if(!techstack.ok){
+                throw new Error("Techs are not available.");
+            }
+            const tech = await techstack.json();
+            setTechId(tech.id);
+            setTechs(tech.techs);
+
         } catch (error) {
             console.error('Error fetching data:', error);
             
@@ -44,13 +56,13 @@ const EditProjectModal = () => {
         
     }
 
-    const [imageLink, setImageLink] = useState<string>("");
 
     useEffect(()=>{
         fetchData();
         
     },[editProjectModal.projectId]);
 
+    
 
     const {
         register,
@@ -64,13 +76,33 @@ const EditProjectModal = () => {
         setImage(result?.info?.secure_url);
     },[setImage]);
 
-    const onSubmit:SubmitHandler<FieldValues> = (values) => {
+    const onSubmit:SubmitHandler<FieldValues> = async(values) => {
         try {
             
             setIsLoading(true);
             console.log(values);
+            
+            const project = await axios.patch(`/api/update/projects/${editProjectModal.projectId}`, 
+                {
+                    techId,
+                    image,
+                    techs,
+                    ...values
+                }
+            );
 
+            if(!project){
+                console.log(project);
+                toast.error("Failed to update.");
+            }
+
+            toast.success("Project updated successfully.");
             setIsLoading(false);
+
+
+            router.refresh();
+            editProjectModal.onClose();
+
 
         } catch (error) {
             console.log(error);
@@ -185,7 +217,7 @@ const EditProjectModal = () => {
                     uploadPreset='a6qw5dqd'
                 >
                     <Image 
-                        src={image || imageLink || "/images/placeholder.png"}
+                        src={image || "/images/placeholder.png"}
                         height={400}
                         width={400}
                         alt='Project image'

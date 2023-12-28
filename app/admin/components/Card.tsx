@@ -11,10 +11,12 @@ import useEditProjectModal from '@/hooks/useEditProjectModal';
 
 interface cardProps {
   projects: Project;
+  isAdmin: boolean;
 }
 
 const Card: React.FC<cardProps> = ({
-    projects
+    projects,
+    isAdmin
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const editProject = useEditProjectModal();
@@ -35,7 +37,8 @@ const Card: React.FC<cardProps> = ({
         justify-center
       '>
         <div className='
-          bg-white
+          bg-gray-800
+          md:min-h-[37vmax]
           w-[25vw]
           p-4
           flex
@@ -64,32 +67,40 @@ const Card: React.FC<cardProps> = ({
             />
           </div>
           <hr className='w-full text-neutral-700' />
-          <h1 className='text-lg font-bold text-black'>
+          <h1 className='text-lg font-bold text-white'>
             {projects?.pname}
           </h1>
-          <p className='text-sm text-neutral-700'>
+          <p className='text-sm text-neutral-300'>
             {projects?.description}
           </p>
-          <p className='text-sm text-neutral-700'>
+          <a href={projects?.link || "/"} className='text-sm text-neutral-300'>
             {projects?.link}
-          </p>
+          </a>
           
-          <hr className='w-full text-neutral-900' />
+          {
+            isAdmin && (
+              <>
+              
+                <hr className='w-full text-neutral-900' />
 
-          <Button 
-            label='Edit'
-            onClick={handleClick}
-            isDisabled={isLoading}
-            icon={BiSolidEdit}
-            style='w-full'
-          />
+                <Button 
+                  label='Edit'
+                  onClick={handleClick}
+                  isDisabled={isLoading}
+                  icon={BiSolidEdit}
+                  style='w-full'
+                />
 
-          <Button 
-            label='Delete'
-            isDisabled={isLoading}
-            icon={BiSolidTrash}
-            style='w-full bg-red-700 hover:bg-red-500'
-          />
+                <Button 
+                  label='Delete'
+                  isDisabled={isLoading}
+                  icon={BiSolidTrash}
+                  style='w-full bg-red-700 hover:bg-red-500'
+                />
+
+              </>
+            )
+          }
         </div>
       </div>
 

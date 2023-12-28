@@ -273,7 +273,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         projects?.map((project)=>{
                             return (
                                 <div key={project.id}>
-                                    <Card projects={project} />
+                                    <Card isAdmin={true} projects={project} />
                                 </div>
                             )
                                 
