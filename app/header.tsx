@@ -16,7 +16,7 @@ const header = () => {
             active: "/" === pathname
         },
         {
-            label:"Work",
+            label:"Projects",
             href:"/projects",
             active: "/projects" === pathname
         },

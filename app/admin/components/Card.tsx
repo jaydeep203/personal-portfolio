@@ -39,7 +39,9 @@ const Card: React.FC<cardProps> = ({
         <div className='
           bg-gray-800
           md:min-h-[37vmax]
-          w-[25vw]
+          w-full
+          min-h-[70vh]
+          sm:w-[25vw]
           p-4
           flex
           flex-col
@@ -55,8 +57,10 @@ const Card: React.FC<cardProps> = ({
             className='
               relative
               rounded-t-lg
-              w-[20vw]
-              h-[30vh]
+              w-full
+              h-[20vh]
+              sm:w-[20vw]
+              sm:h-[30vh]
             '
           >
             <Image

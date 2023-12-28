@@ -20,14 +20,14 @@ export function ProjectScroll({projects}:carouselProps) {
     <Carousel
         plugins={[
             Autoplay({
-            delay: 3000,
-            }),
+              delay:4000
+            })
         ]}
         opts={{
             align: "start",
             loop:true
         }}
-      className="w-full"
+      className="w-full max-h-[100vh] sm:max-h-60vmax"
     >
       <CarouselContent>
         {projects.map((project, index) => (
@@ -38,8 +38,8 @@ export function ProjectScroll({projects}:carouselProps) {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="hidden sm:flex" />
+      <CarouselNext className="hidden sm:flex" />
     </Carousel>
   )
 }
