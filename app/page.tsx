@@ -7,6 +7,8 @@ import getUser from './actions/getUser';
 import {ProjectScroll} from '@/components/pageSections/projectsScroll/ProjectScroll';
 import FlareCursor from '@/components/Layout/FlareCursor';
 
+export const revalidate = 0;
+
 export default async function Home() {
   
 
@@ -38,16 +40,16 @@ export default async function Home() {
       >
 
       
-      {/* <div className='relative -z-[1]'>
+      <div className='relative -z-[1]'>
         <ParticlesBackground />
-      </div> */}
+      </div>
       
         <Hero />
         {/* <ImageComp 
           projects={projects}
         /> */}
 
-        {/* <ProjectScroll projects={projects} /> */}
+        <ProjectScroll projects={projects} />
 
         
         <Quotes
