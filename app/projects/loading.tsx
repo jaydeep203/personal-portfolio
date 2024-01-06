@@ -3,12 +3,12 @@
 import React from 'react'
 import { BounceLoader } from 'react-spinners';
 
-const loading = () => {
+const Loading = () => {
   return (
-    <div className='h-full flex items-center justify-center'>
+    <div className='h-full w-full z-50 flex items-center justify-center'>
         <BounceLoader color='#22c55e' size={40} />
     </div>
   )
 }
 
-export default loading
+export default Loading
