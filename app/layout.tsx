@@ -6,6 +6,7 @@ import ToasterContext from '@/components/context/ToasterContext';
 import NextAuthProvider from './providers/NextAuthProvider';
 import ProjectModal from '@/components/modal/ProjectModal';
 import FlareCursor from '@/components/Layout/FlareCursor';
+import {Analytics} from "@vercel/analytics/react";
 
 export const metadata = {
   title: 'Portfolio App',
@@ -19,12 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      
       <body className='BackgroundPage w-full'>
         <ToasterContext />
         <NextAuthProvider>
           <ProjectModal />
           <Header />
           {children}
+          <Analytics />
           <Footer />
         </NextAuthProvider>
       </body>
