@@ -4,6 +4,7 @@ import {Nav, Button, MenuElement} from '@/components/exportLayout';
 import Link from 'next/link';
 import { FaEnvira} from '@/components/icons/icons';
 import { usePathname, useRouter } from 'next/navigation';
+import { Home, Presentation, StickyNote, Info, Wrench } from 'lucide-react';
 
 const header = () => {
     const router = useRouter();
@@ -13,26 +14,31 @@ const header = () => {
         {
             label:"Home",
             href:"/",
+            icon:Home,
             active: "/" === pathname
         },
         {
             label:"Projects",
             href:"/projects",
+            icon:Presentation,
             active: "/projects" === pathname
         },
         {
             label:"Resume",
             href:"/certificate",
+            icon:StickyNote,
             active: "/certificate" === pathname
         },
         {
             label:"About",
             href:"/about",
+            icon:Info,
             active: "/about" === pathname
         },
         {
             label:"Admin",
             href:"/admin",
+            icon:Wrench,
             active: "/admin" === pathname
         },
     ];
@@ -64,7 +70,7 @@ const header = () => {
             {
                 navs.map((item, i)=>(
                     <div key={i} className='flex items-center'>
-                        <Nav active={item.active} label={item.label} href={item.href} />
+                        <Nav icon={item.icon} active={item.active} label={item.label} href={item.href} />
                     </div>
                     
                 ))

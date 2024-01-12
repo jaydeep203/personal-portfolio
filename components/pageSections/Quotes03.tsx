@@ -1,11 +1,14 @@
-
+"use client";
 
 import Image from 'next/image'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {ScrollProgress} from "@/components/animation/ScrollProgress";
 import { HiddenAppear } from '../animation/HiddenAppear';
 import { BioTyped } from './DynamicTyped';
 import { SectionAnimate } from '../animation/SectionAnimate';
+import { Button } from '../ui/button';
+import {BsLinkedin, FaGithub} from "@/components/icons/icons";
+import { useRouter } from 'next/navigation';
 
 
 
@@ -21,6 +24,10 @@ const Bio:React.FC<BioProps> = ({
   avatar,
   bio
 }) => {
+  
+  const router = useRouter();
+
+
   return (
     
       <div 
@@ -87,7 +94,35 @@ const Bio:React.FC<BioProps> = ({
                 <BioTyped bio={bio} />
               </p>
             </SectionAnimate>
-            
+            <div className='flex flex-row gap-5'>
+              <Button 
+                className='bg-white hover:bg-neutral-300 text-black font-bold px-4'
+              >
+                Skills
+              </Button>
+              <Button 
+                onClick={() => router.push("/projects")}
+                className='bg-white hover:bg-neutral-300 text-black font-bold px-4'
+              >Projects</Button>
+              <a href="https://github.com/jaydeep203" rel='noopener noreferrer' target='_blank' >
+                <Button 
+
+                  size="icon"
+                  className='bg-white hover:bg-neutral-300 text-black font-bold'
+                >  
+                    <FaGithub className='h-4 w-4' /> 
+                  
+                </Button>
+              </a> 
+              <a href="https://www.linkedin.com/in/jaydeep-deshpande-68601822a/" rel='noopener noreferrer' target='_blank' >
+                <Button 
+                  size="icon"
+                  className='bg-white hover:bg-neutral-300 text-black font-bold'
+                >  
+                  <BsLinkedin className='h-4 w-4' /> 
+                </Button>
+              </a> 
+            </div>
           </div>
         </div>
       </div>
