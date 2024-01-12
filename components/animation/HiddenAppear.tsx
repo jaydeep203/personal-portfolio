@@ -22,10 +22,13 @@ const container = {
 }
   
 const item = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { x: -600, opacity: 0 },
   visible: {
-    y: 0,
-    opacity: 1
+    x: 0,
+    opacity: 1,
+    transition:{
+      duration:0.7
+    }
   }
 }
 
@@ -50,7 +53,7 @@ export const HiddenAppear:React.FC<hiddenAppearProps> = ({ children }) => {
     <motion.div
       className="box"
       ref={ref}
-      variants={boxVariant}
+      variants={item}
       initial="hidden"
       animate={control}
     >

@@ -10,7 +10,7 @@ import {Analytics} from "@vercel/analytics/react";
 
 export const metadata = {
   title: 'Portfolio App',
-  description: 'Best responsive and attractive My Personal Portfolio App which shows my ability to create and develope the web application as well as various skills that I have.',
+  description: 'Best responsive and attractive My Personal Portfolio App which shows my ability to create and develope the web application as well as various skills that I have. Portfolio website of jaydeep deshpande.',
 }
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
           <ProjectModal />
           <Header />
           {children}
-          <Analytics />
+          {/* <Analytics /> */}
           <Footer />
         </NextAuthProvider>
       </body>

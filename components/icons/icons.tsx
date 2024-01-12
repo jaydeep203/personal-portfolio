@@ -58,7 +58,7 @@ export const skillsIcons = [
     },
     {
         Icon: SiTailwindcss,
-        name: "Tailwind css",
+        name: "Tailwind",
         color: "text-sky-500"
     },
     {

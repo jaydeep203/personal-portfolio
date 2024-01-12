@@ -3,6 +3,9 @@
 import Image from 'next/image'
 import React from 'react';
 import {ScrollProgress} from "@/components/animation/ScrollProgress";
+import { HiddenAppear } from '../animation/HiddenAppear';
+import { BioTyped } from './DynamicTyped';
+import { SectionAnimate } from '../animation/SectionAnimate';
 
 
 
@@ -43,7 +46,7 @@ const Bio:React.FC<BioProps> = ({
 
           '
         >
-          <ScrollProgress>
+          <SectionAnimate>
             <div
               
               className='
@@ -71,7 +74,7 @@ const Bio:React.FC<BioProps> = ({
                 '
               />
             </div>
-          </ScrollProgress>
+          </SectionAnimate>
           <div
             className='
               p-6
@@ -79,9 +82,11 @@ const Bio:React.FC<BioProps> = ({
           >
             <h1 className='text-neutral-100 font-bold text-xl'>Bio</h1>
             <hr className='text-white' />
-            <p className='p-5 text-neutral-300 '>
-              {bio}
-            </p>
+            <SectionAnimate>
+              <p className='p-5 text-neutral-300 '>
+                <BioTyped bio={bio} />
+              </p>
+            </SectionAnimate>
             
           </div>
         </div>

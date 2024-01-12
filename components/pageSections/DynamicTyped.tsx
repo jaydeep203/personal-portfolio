@@ -11,6 +11,27 @@ import { TypeAnimation } from 'react-type-animation';
 //     array: Array[];
 // }
 
+interface bioProps{
+  bio?:string | null | undefined;
+}
+
+export const BioTyped = ({bio}:bioProps) => {
+    return (
+      <TypeAnimation
+        sequence={[
+          1000,
+          bio? bio : ""
+        ]}
+        wrapper="span"
+        cursor={false}
+        repeat={1}
+        className=''
+        style={{ display: 'inline-block' }}
+      />
+    );
+  };
+
+
 export const TitleTyped = () => {
     return (
       <TypeAnimation

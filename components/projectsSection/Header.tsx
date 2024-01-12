@@ -88,6 +88,9 @@ const Header:React.FC<HeaderProps> = ({
                 flex
                 flex-row
                 gap-3
+                max-w-full
+                overflow-x-scroll
+                no-scrollbar
             '
         >
             {
@@ -99,14 +102,15 @@ const Header:React.FC<HeaderProps> = ({
                         techs?.includes(name)  && (
                                 <div 
                                     
-                                    className='
+                                    className="
                                         bg-neutral-900
                                         p-1
                                         m-1
                                         rounded-full
                                         cursor-pointer
                                         hover:scale-110
-                                '
+                                "
+                                
                     >
                                 <Icon 
                                     className={`text-white hover:text-green-500`}
