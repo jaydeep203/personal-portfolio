@@ -44,7 +44,7 @@ const Page = async() => {
 
           {
             projects?.map((project, i) => (
-              <div key={i} className='w-[80%] my-5'>
+              <div key={i} className='w-full sm:w-[80%] my-5'>
                 <ProjectsSection 
                   project={project}
                 />

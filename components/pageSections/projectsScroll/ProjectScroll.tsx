@@ -27,7 +27,7 @@ export function ProjectScroll({projects}:carouselProps) {
             align: "start",
             loop:true
         }}
-      className="w-full max-h-[100vh] sm:max-h-60vmax"
+      className="w-full mx-auto sm:w-full max-h-[100vh] sm:max-h-60vmax"
     >
       <CarouselContent>
         {projects.map((project, index) => (

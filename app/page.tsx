@@ -35,7 +35,8 @@ export default async function Home() {
       <div
         className='
           mx-auto
-          w-[85%]
+          w-full
+          sm:w-[85%]
         '
       >
 
@@ -45,9 +46,7 @@ export default async function Home() {
       </div> 
       
         <Hero />
-        {/* <ImageComp 
-          projects={projects}
-        /> */}
+        
 
         <ProjectScroll projects={projects} />
 

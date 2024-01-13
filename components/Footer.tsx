@@ -3,8 +3,13 @@ import {
   FaEnvira,
   FaGithub,
   BsLinkedin,
-  HiOutlineMail
+  HiOutlineMail,
+  Linkedin,
+  Github,
+  AtSign
 } from "@/components/icons/icons";
+
+
 
 const Footer = () => {
   return (
@@ -56,9 +61,9 @@ const Footer = () => {
             px-2
             gap-5
           '>
-            <a href="https://www.linkedin.com/in/jaydeep-deshpande-68601822a/" target='blank'><BsLinkedin className='text-white hover:text-blue-600' size={30} /> </a>
-            <a href="https://github.com/jaydeep203" target='blank'><FaGithub className='text-white hover:text-slate-400' size={30} /> </a>
-            <a href="mailto:jaydeepdeshpande03@outlook.com" target='blank'><HiOutlineMail className='text-white hover:text-red-400' size={30} /> </a>
+            <a href="https://www.linkedin.com/in/jaydeep-deshpande-68601822a/" target='blank'><Linkedin className='text-white hover:text-blue-600' size={30} /> </a>
+            <a href="https://github.com/jaydeep203" target='blank'><Github className='text-white hover:text-slate-400' size={30} /> </a>
+            <a href="mailto:jaydeepdeshpande03@outlook.com" target='blank'><AtSign className='text-white hover:text-red-400' size={30} /> </a>
           </div>
         </div>
       </div>

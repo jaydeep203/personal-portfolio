@@ -9,6 +9,7 @@ import { SectionAnimate } from '../animation/SectionAnimate';
 import { Button } from '../ui/button';
 import {BsLinkedin, FaGithub} from "@/components/icons/icons";
 import { useRouter } from 'next/navigation';
+import {Github, Linkedin} from "lucide-react";
 
 
 
@@ -71,7 +72,7 @@ const Bio:React.FC<BioProps> = ({
                 src={ avatar || "/images/placeholder.png"}
                 alt='avatar'
                 className='
-                  rounded-3xl
+                  rounded-full
                   mx-auto
                   group-hover:border-white
                   group-hover:border-[1px]
@@ -106,20 +107,21 @@ const Bio:React.FC<BioProps> = ({
               >Projects</Button>
               <a href="https://github.com/jaydeep203" rel='noopener noreferrer' target='_blank' >
                 <Button 
-
                   size="icon"
-                  className='bg-white hover:bg-neutral-300 text-black font-bold'
+                  variant="ghost"
+                  className='text-white bg-opacity-10 hover:bg-opacity-40 hover:bg-black hover:text-neutral-300'
                 >  
-                    <FaGithub className='h-4 w-4' /> 
+                    <Github className='h-5 w-5' /> 
                   
                 </Button>
               </a> 
               <a href="https://www.linkedin.com/in/jaydeep-deshpande-68601822a/" rel='noopener noreferrer' target='_blank' >
                 <Button 
                   size="icon"
-                  className='bg-white hover:bg-neutral-300 text-black font-bold'
+                  variant="ghost"
+                  className='text-white bg-opacity-10 hover:bg-opacity-40 hover:bg-black hover:text-neutral-300'
                 >  
-                  <BsLinkedin className='h-4 w-4' /> 
+                  <Linkedin className='h-5 w-5' /> 
                 </Button>
               </a> 
             </div>

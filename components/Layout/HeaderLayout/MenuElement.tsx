@@ -1,10 +1,10 @@
 "use client";
 import React , { useCallback, useState }  from 'react';
 import Link from 'next/link';
-import { FiMenu } from 'react-icons/fi';
 import {AiOutlineCloseCircle} from 'react-icons/ai';
 import {AnimatePresence, delay, motion} from 'framer-motion';
 import {Button} from '@/components/exportLayout';
+import {AlignRight} from "lucide-react";
 
 
 interface ButtonProps {
@@ -56,7 +56,7 @@ const MenuBtn = ({navs}:ButtonProps) => {
             y:"-20px"
         }
     }
-      const Icon = open ? AiOutlineCloseCircle : FiMenu;
+      const Icon = open ? AiOutlineCloseCircle : AlignRight;
 
   return (
     <>

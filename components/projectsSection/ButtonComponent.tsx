@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+import {ExternalLink} from "lucide-react";
 
 interface ButtonComponentProps{
     lable?:string;
@@ -46,9 +47,14 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({
                                 group-hover:border-white
                                 group-hover:border-[1px]
                                 group-hover:border-solid
+                                flex
+                                flex-row
+                                justify-center
+                                items-center
+                                gap-3
                             '
                             >
-                                Show more work
+                                Show more work <ExternalLink className='w-4 h-4' />
                             </button>
                     ) : (
                             <a
@@ -72,7 +78,7 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({
                                     style
                                 )}
                             >
-                                { lable || "Visit website"}
+                                { lable ? lable : ( <span className='flex flex-row gap-3'>Visit website <ExternalLink className='w-4 h-4' /></span> )}
                             </a>
                     )
                 }

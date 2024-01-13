@@ -20,6 +20,9 @@ import {
 } from 'react-icons/bi';
 import { TbBrandNextjs } from 'react-icons/tb';
 
+
+import {Github, Linkedin, AtSign} from "lucide-react";
+
 export const skillsIcons = [
     {
         Icon: BiLogoCPlusPlus,
@@ -118,5 +121,8 @@ export {
     HiOutlineMail,
     AiOutlineDownCircle,
     FaHackerrank,
-    SiCoursera
+    SiCoursera,
+    AtSign,
+    Linkedin,
+    Github
 };
