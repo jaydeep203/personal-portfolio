@@ -53,13 +53,15 @@ const header = () => {
         bg-transparent
         backdrop-blur-3xl
         flex
-        justify-evenly
+        justify-around
+        md:justify-evenly
         z-10
         bg-neutral-900
     '>
         <div className='flex items-center justify-center p-4'>
             <Link href={"/"} className='flex text-white items-center gap-2 text-2xl'><FaEnvira size={30} color='green' />Jaydeep</Link>
         </div>
+        
         <article className='
             hidden
             md:flex
@@ -93,7 +95,12 @@ const header = () => {
             transition
         '/>
 
-        <MenuElement navs={navs} />
+        
+            <Link href={"/"} className='absolute right-[25vw] top-7'>
+                <Home className='flex md:hidden h-6 w-6 text-white' />
+            </Link>
+            <MenuElement navs={navs} />
+        
         
     </nav>
   )

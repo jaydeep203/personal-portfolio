@@ -6,6 +6,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import {BiSolidEdit, BiSolidTrash} from "react-icons/bi";
 import useEditProjectModal from '@/hooks/useEditProjectModal';
+import ScrollAnimation from '@/components/animation/ScrollAnimation';
 
 
 
@@ -71,15 +72,21 @@ const Card: React.FC<cardProps> = ({
             />
           </div>
           <hr className='w-full text-neutral-700' />
-          <h1 className='text-lg font-bold text-white'>
-            {projects?.pname}
-          </h1>
-          <p className='text-sm text-neutral-300'>
-            {projects?.description}
-          </p>
-          <a href={projects?.link || "/"} className='text-sm text-neutral-300'>
-            {projects?.link}
-          </a>
+          <ScrollAnimation>
+            <h1 className='text-lg font-bold text-white'>
+              {projects?.pname}
+            </h1>
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <p className='text-sm text-neutral-300'>
+              {projects?.description}
+            </p>
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <a href={projects?.link || "/"} className='text-sm text-neutral-300'>
+              {projects?.link}
+            </a>
+          </ScrollAnimation>
           
           {
             isAdmin && (

@@ -33,7 +33,7 @@ const Nav = ({active, href, label, icon:Icon}:NavProps) => {
               ${active? "text-[#9580ff]" : "text-white"}
           `}
       href={href}> 
-        <Icon color='white' size={20} />
+        <Icon size={20} />
         {label}
       </Link>
       {active &&  <hr className='font-bold w-full text-[#9580ff] bg-[#9580ff]' /> }

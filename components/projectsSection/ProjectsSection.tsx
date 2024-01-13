@@ -10,6 +10,7 @@ import {AiFillHtml5} from "react-icons/ai";
 import { Project } from '@prisma/client';
 import ButtonComponent from './ButtonComponent';
 import getTechstack from '@/app/actions/getTechstack';
+import ScrollAnimation from '../animation/ScrollAnimation';
 
 interface ProjectsSectionProps {
     project?:Project | null;
@@ -45,30 +46,36 @@ const ProjectsSection:React.FC<ProjectsSectionProps> = async({
             transition
         '
     >
-        <div
-            className='
-                w-full
-                p-3
-                md:p-8
-                flex
-                flex-col
-                gap-10
-            '
-        >
-            <Header 
-                techs={techstack?.techs}
-                pname={project?.pname}
-                description={project?.description}
-            />
-            <ImageComponent
-                image={project?.image}
-            />
-            <ButtonComponent
-                link={project?.link}
-                isButton={isButton}
-            />
-            
-        </div>
+        
+            <div
+                className='
+                    w-full
+                    p-3
+                    md:p-8
+                    flex
+                    flex-col
+                    gap-10
+                '
+            >
+                    <Header 
+                        techs={techstack?.techs}
+                        pname={project?.pname}
+                        description={project?.description}
+                    />
+                    <ImageComponent
+                        image={project?.image}
+                    />
+                
+                    <ButtonComponent
+                        link={project?.link}
+                        isButton={isButton}
+                    />
+                
+
+                
+            </div>
+        
+        
     </div>
   )
 }

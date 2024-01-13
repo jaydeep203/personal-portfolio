@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { skillsIcons } from '../icons/icons';
+import ScrollAnimation from '../animation/ScrollAnimation';
 
 interface HeaderProps{
     techs?:string[];
@@ -40,19 +41,25 @@ const Header:React.FC<HeaderProps> = ({
                     gap-4
                 '
             >
-                <div
-                    className='mx-1 text-sm'
-                >
-                    Tagline
-                </div>
-                <div 
-                    className='mx-1 font-bold text-white text-lg md:text-3xl'
-                >
-                    {pname}
-                </div>
-                <div className='w-full md:mx-1 md:w-[80%]'>
-                    {description}
-                </div>
+                <ScrollAnimation>
+                    <div
+                        className='mx-1 text-sm'
+                    >
+                        Tagline
+                    </div>
+                </ScrollAnimation>
+                <ScrollAnimation>
+                    <div 
+                        className='mx-1 font-bold text-white text-lg md:text-3xl'
+                    >
+                        {pname}
+                    </div>
+                </ScrollAnimation>
+                <ScrollAnimation>
+                    <div className='w-full md:mx-1 md:w-[80%]'>
+                        {description}
+                    </div>
+                </ScrollAnimation>
             </div>
             <div 
                 className='
@@ -82,48 +89,50 @@ const Header:React.FC<HeaderProps> = ({
                 </p>
             </div>
         </div>
-        <div
-            className='
-                p-4
-                flex
-                flex-row
-                gap-3
-                max-w-full
-                overflow-x-scroll
-                no-scrollbar
-            '
-        >
-            {
-                skillsIcons.map(({Icon, name, color}, i)=> (
-                    <>
+            <div
+                className='
+                    p-4
+                    flex
+                    flex-row
+                    gap-3
+                    max-w-full
+                    overflow-x-scroll
+                    no-scrollbar
+                '
+            >
+                {
+                    skillsIcons.map(({Icon, name, color}, i)=> (
+                        <>
 
-                    
-                    {
-                        techs?.includes(name)  && (
-                                <div 
+                        
+                        {
+                            techs?.includes(name)  && (
+                                    <div 
+                                        
+                                        className="
+                                            bg-neutral-900
+                                            p-1
+                                            m-1
+                                            rounded-full
+                                            cursor-pointer
+                                            hover:scale-110
+                                    "
                                     
-                                    className="
-                                        bg-neutral-900
-                                        p-1
-                                        m-1
-                                        rounded-full
-                                        cursor-pointer
-                                        hover:scale-110
-                                "
+                        >      
+                            
+                                    <Icon 
+                                        className={`text-white hover:text-green-500`}
+                                        size={30}
+                                    />    
                                 
-                    >
-                                <Icon 
-                                    className={`text-white hover:text-green-500`}
-                                    size={30}
-                                />    
-                    </div>
-                        )
-                    }
-                    </>
-                   
-                ))
-            }
-        </div>
+                        </div>
+                            )
+                        }
+                        </>
+                    
+                    ))
+                }
+            </div>
     </div>
   )
 }

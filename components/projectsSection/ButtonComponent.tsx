@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import {ExternalLink} from "lucide-react";
+import ScrollAnimation from '../animation/ScrollAnimation';
 
 interface ButtonComponentProps{
     lable?:string;
@@ -31,6 +32,7 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({
             '>
                 {
                     isButton ? (
+                        <ScrollAnimation>
                         <button 
                             onClick={() => router.push("/projects")}
                             className='
@@ -56,7 +58,9 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({
                             >
                                 Show more work <ExternalLink className='w-4 h-4' />
                             </button>
+                        </ScrollAnimation>
                     ) : (
+                        
                             <a
                                 target='_blank'
                                 href={link || "/" }
@@ -80,6 +84,7 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({
                             >
                                 { lable ? lable : ( <span className='flex flex-row gap-3'>Visit website <ExternalLink className='w-4 h-4' /></span> )}
                             </a>
+                        
                     )
                 }
                 

@@ -5,7 +5,6 @@ import ProjectsSection from '@/components/projectsSection/ProjectsSection';
 import getProjects from './actions/getProjects';
 import getUser from './actions/getUser';
 import {ProjectScroll} from '@/components/pageSections/projectsScroll/ProjectScroll';
-import FlareCursor from '@/components/Layout/FlareCursor';
 
 export const revalidate = 0;
 
@@ -55,13 +54,24 @@ export default async function Home() {
           avatar={user?.avatar}
           bio={user?.bio}
         /> 
-         <SkillCarousel /> 
+
+        
+          <SkillCarousel /> 
+        
+
+
         {/* put icons array */}
-        <ProjectsSection
-          isButton={true}
-          project={project}
-        />
-        <GetInTouchSection />
+
+        
+          <ProjectsSection
+            isButton={true}
+            project={project}
+          />
+        
+
+        
+          <GetInTouchSection />
+        
       </div>
     </div>
     </>

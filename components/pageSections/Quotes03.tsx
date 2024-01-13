@@ -2,10 +2,8 @@
 
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react';
-import {ScrollProgress} from "@/components/animation/ScrollProgress";
-import { HiddenAppear } from '../animation/HiddenAppear';
 import { BioTyped } from './DynamicTyped';
-import { SectionAnimate } from '../animation/SectionAnimate';
+import ScrollAnimation from '../animation/ScrollAnimation';
 import { Button } from '../ui/button';
 import {BsLinkedin, FaGithub} from "@/components/icons/icons";
 import { useRouter } from 'next/navigation';
@@ -54,7 +52,7 @@ const Bio:React.FC<BioProps> = ({
 
           '
         >
-          <SectionAnimate>
+          <ScrollAnimation>
             <div
               
               className='
@@ -82,50 +80,62 @@ const Bio:React.FC<BioProps> = ({
                 '
               />
             </div>
-          </SectionAnimate>
-          <div
-            className='
-              p-6
-            '
-          >
-            <h1 className='text-neutral-100 font-bold text-xl'>Bio</h1>
-            <hr className='text-white' />
-            <SectionAnimate>
-              <p className='p-5 text-neutral-300 '>
-                <BioTyped bio={bio} />
-              </p>
-            </SectionAnimate>
-            <div className='flex flex-row gap-5'>
-              <Button 
-                className='bg-white hover:bg-neutral-300 text-black font-bold px-4'
-              >
-                Skills
-              </Button>
-              <Button 
-                onClick={() => router.push("/projects")}
-                className='bg-white hover:bg-neutral-300 text-black font-bold px-4'
-              >Projects</Button>
-              <a href="https://github.com/jaydeep203" rel='noopener noreferrer' target='_blank' >
-                <Button 
-                  size="icon"
-                  variant="ghost"
-                  className='text-white bg-opacity-10 hover:bg-opacity-40 hover:bg-black hover:text-neutral-300'
-                >  
-                    <Github className='h-5 w-5' /> 
-                  
-                </Button>
-              </a> 
-              <a href="https://www.linkedin.com/in/jaydeep-deshpande-68601822a/" rel='noopener noreferrer' target='_blank' >
-                <Button 
-                  size="icon"
-                  variant="ghost"
-                  className='text-white bg-opacity-10 hover:bg-opacity-40 hover:bg-black hover:text-neutral-300'
-                >  
-                  <Linkedin className='h-5 w-5' /> 
-                </Button>
-              </a> 
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <div
+              className='
+                p-6
+              '
+            >
+              <ScrollAnimation>
+                <h1 className='text-neutral-100 font-bold text-xl'>Bio</h1>
+              </ScrollAnimation>
+              <hr className='text-white' />
+              
+                <p className='p-5 text-neutral-300 '>
+                  <BioTyped bio={bio} />
+                </p>
+              
+              <div className='flex flex-row gap-5'>
+                <ScrollAnimation>
+                  <Button 
+                    className='bg-white hover:bg-neutral-300 text-black font-bold px-4'
+                  >
+                    Skills
+                  </Button>
+                </ScrollAnimation>
+                <ScrollAnimation>
+                  <Button 
+                    onClick={() => router.push("/projects")}
+                    className='bg-white hover:bg-neutral-300 text-black font-bold px-4'
+                  >Projects</Button>
+                </ScrollAnimation>
+                <ScrollAnimation>
+                  <a href="https://github.com/jaydeep203" rel='noopener noreferrer' target='_blank' >
+                    <Button 
+                      size="icon"
+                      variant="ghost"
+                      className='text-white bg-opacity-10 hover:bg-opacity-40 hover:bg-black hover:text-neutral-300'
+                    >  
+                        <Github className='h-5 w-5' /> 
+                      
+                    </Button>
+                  </a> 
+                </ScrollAnimation>
+                <ScrollAnimation>
+                  <a href="https://www.linkedin.com/in/jaydeep-deshpande-68601822a/" rel='noopener noreferrer' target='_blank' >
+                    <Button 
+                      size="icon"
+                      variant="ghost"
+                      className='text-white bg-opacity-10 hover:bg-opacity-40 hover:bg-black hover:text-neutral-300'
+                    >  
+                      <Linkedin className='h-5 w-5' /> 
+                    </Button>
+                  </a> 
+                </ScrollAnimation>
+              </div>
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </div>
     

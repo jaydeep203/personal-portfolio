@@ -2,6 +2,7 @@ import ProjectsSection from '@/components/projectsSection/ProjectsSection'
 import React from 'react'
 import getProjects from '../actions/getProjects';
 import getTechstack from '../actions/getTechstack';
+import ScrollAnimation from '@/components/animation/ScrollAnimation';
 
 export const revalidate =0;
 
@@ -45,9 +46,9 @@ const Page = async() => {
           {
             projects?.map((project, i) => (
               <div key={i} className='w-full sm:w-[80%] my-5'>
-                <ProjectsSection 
-                  project={project}
-                />
+                  <ProjectsSection 
+                    project={project}
+                  />
               </div>
             ))
           }
