@@ -31,9 +31,9 @@ const header = () => {
         },
         {
             label:"About",
-            href:"/about",
+            href:"/#bio",
             icon:Info,
-            active: "/about" === pathname
+            active: "/#bio" === pathname
         },
         {
             label:"Admin",

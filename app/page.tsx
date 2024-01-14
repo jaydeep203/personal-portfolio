@@ -5,6 +5,7 @@ import ProjectsSection from '@/components/projectsSection/ProjectsSection';
 import getProjects from './actions/getProjects';
 import getUser from './actions/getUser';
 import {ProjectScroll} from '@/components/pageSections/projectsScroll/ProjectScroll';
+import Education from '@/components/Education';
 
 export const revalidate = 0;
 
@@ -56,7 +57,9 @@ export default async function Home() {
         /> 
 
         
-          <SkillCarousel /> 
+        <Education />
+
+        <SkillCarousel /> 
         
 
 

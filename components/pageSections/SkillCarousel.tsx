@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { skillsIcons } from "../icons/icons";
 import { twMerge } from "tailwind-merge";
 import ScrollAnimation from "../animation/ScrollAnimation";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 // const Skills = () => {
 //   return (
@@ -25,9 +27,12 @@ import ScrollAnimation from "../animation/ScrollAnimation";
 // }
 
 const SkillCarousel = () => {
+
+  const router = useRouter();
     
     return (
       <div
+      id="skills"
       className='
         h-[100vh]
         w-full
@@ -115,6 +120,13 @@ const SkillCarousel = () => {
                 
               </div>
 
+            <Button
+              variant="secondary"
+              title="Projects"
+              onClick={() => router.push("/projects")}
+            >
+              See All Projects
+            </Button>
             </div>
           </ScrollAnimation>
 
@@ -124,24 +136,6 @@ const SkillCarousel = () => {
 }
 
 
-{/* <div className="text-white text-3xl mt-[15vh]">
-              <h3>1</h3>
-            </div>
-            <div className="text-white text-3xl">
-              <h3>2</h3>
-            </div>
-            <div className="text-white text-3xl">
-              <h3>3</h3>
-            </div>
-            <div className="text-white text-3xl">
-              <h3>4</h3>
-            </div>
-            <div className="text-white text-3xl">
-              <h3>5</h3>
-            </div>
-            <div className="text-white text-3xl">
-              <h3>6</h3>
-            </div> */}
 
 
 export default SkillCarousel

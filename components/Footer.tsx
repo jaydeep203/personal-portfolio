@@ -14,6 +14,7 @@ import {
 const Footer = () => {
   return (
     <div 
+      id='footer'
       className='
         bg-slate-900
         px-10

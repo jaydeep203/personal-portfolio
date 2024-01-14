@@ -1,11 +1,10 @@
 "use client";
 
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BioTyped } from './DynamicTyped';
 import ScrollAnimation from '../animation/ScrollAnimation';
 import { Button } from '../ui/button';
-import {BsLinkedin, FaGithub} from "@/components/icons/icons";
 import { useRouter } from 'next/navigation';
 import {Github, Linkedin} from "lucide-react";
 
@@ -26,10 +25,25 @@ const Bio:React.FC<BioProps> = ({
   
   const router = useRouter();
 
+  const handleSkillBtn = (e:any) => {
+    e.preventDefault();
+    const skillsElement = document.querySelector("#skills") as HTMLElement | 0;
+
+    if(skillsElement)
+    {
+      window.scrollTo({
+        top: skillsElement?.offsetTop || 0,
+        behavior: 'smooth'
+      });
+    }
+    
+  }
+
 
   return (
     
       <div 
+      id='bio'
       className='
         w-full
         flex
@@ -75,7 +89,7 @@ const Bio:React.FC<BioProps> = ({
                   group-hover:border-white
                   group-hover:border-[1px]
                   group-hover:border-solid
-                  group-hover:scale-110
+                  md:group-hover:scale-110
                   transition
                 '
               />
@@ -99,6 +113,7 @@ const Bio:React.FC<BioProps> = ({
               <div className='flex flex-row gap-5'>
                 <ScrollAnimation>
                   <Button 
+                    onClick={handleSkillBtn}
                     className='bg-white hover:bg-neutral-300 text-black font-bold px-4'
                   >
                     Skills

@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import {BiSolidEdit, BiSolidTrash} from "react-icons/bi";
 import useEditProjectModal from '@/hooks/useEditProjectModal';
 import ScrollAnimation from '@/components/animation/ScrollAnimation';
+import ButtonComponent from '@/components/projectsSection/ButtonComponent';
 
 
 
@@ -39,6 +40,7 @@ const Card: React.FC<cardProps> = ({
       '>
         <div className='
           bg-gray-800
+          bg-opacity-30
           md:min-h-[37vmax]
           w-full
           min-h-[70vh]
@@ -83,9 +85,9 @@ const Card: React.FC<cardProps> = ({
             </p>
           </ScrollAnimation>
           <ScrollAnimation>
-            <a href={projects?.link || "/"} className='text-sm text-neutral-300'>
-              {projects?.link}
-            </a>
+            
+              <ButtonComponent link={projects?.link}  />
+            
           </ScrollAnimation>
           
           {
