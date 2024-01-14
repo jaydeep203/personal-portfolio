@@ -1,11 +1,9 @@
 import Hero from "./pageSections/Hero";
-import ImageComp from "./pageSections/ImageComp01";
 import SkillCarousel from "./pageSections/SkillCarousel";
-import Quotes from "./pageSections/Quotes03";
+import Bio from "./pageSections/Bio";
 
 export{
     Hero,
-    ImageComp,
     SkillCarousel,
-    Quotes
+    Bio
 };

@@ -157,4 +157,4 @@ const Bio:React.FC<BioProps> = ({
   )
 }
 
-export default Bio
+export default Bio;

@@ -84,13 +84,6 @@ const Hero = () => {
             text-white
         '
     >
-        {/* <Image 
-            src={"/BackgroundImg.jpeg"}
-            alt='Background'
-            fill
-            className='LandingPageImg'
-            style={{objectFit:'cover', objectPosition:"center"}}
-        /> */}
         <ScrollAnimation>
             <div
                 className=''
@@ -141,7 +134,7 @@ const Hero = () => {
                 
             > 
                 <Presentation />
-                <span className='hidden md:flex'>Projects</span>
+                <span className=''>Projects</span>
             </Button>
             <Button
                 onClick={handleScrollBtn}
@@ -156,7 +149,7 @@ const Hero = () => {
                 onClick={handleEducationBtn}
                 title='Education'
                 variant="outline"
-                className='bg-slate-900 flex flex-row gap-2'
+                className='bg-slate-900 hidden md:flex flex-row gap-2'
 
             >
                 <Book />
@@ -180,7 +173,7 @@ const Hero = () => {
 
             >
                 <Stars />
-                <span className='hidden md:flex'>Certificates</span>
+                <span className=''>Certificates</span>
             </Button>
             <Button 
                 onClick={handleInTouchBtn}

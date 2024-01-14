@@ -1,4 +1,4 @@
-import {Hero, ImageComp, SkillCarousel, Quotes} from '@/components/exportPages';
+import {Hero, SkillCarousel, Bio} from '@/components/exportPages';
 import GetInTouchSection from '@/components/GetInTouchSection';
 import ParticlesBackground from '@/components/Particles/ParticleBackground';
 import ProjectsSection from '@/components/projectsSection/ProjectsSection';
@@ -6,6 +6,7 @@ import getProjects from './actions/getProjects';
 import getUser from './actions/getUser';
 import {ProjectScroll} from '@/components/pageSections/projectsScroll/ProjectScroll';
 import Education from '@/components/Education';
+import Certificates from '@/components/certificates/Certificates';
 
 export const revalidate = 0;
 
@@ -46,24 +47,23 @@ export default async function Home() {
       </div> 
       
         <Hero />
-        
-
+      
         <ProjectScroll projects={projects} />
 
         
-        <Quotes
+        <Bio
           avatar={user?.avatar}
           bio={user?.bio}
         /> 
 
         
+        <Certificates />
+
         <Education />
+
 
         <SkillCarousel /> 
         
-
-
-        {/* put icons array */}
 
         
           <ProjectsSection
@@ -71,6 +71,8 @@ export default async function Home() {
             project={project}
           />
         
+
+
 
         
           <GetInTouchSection />

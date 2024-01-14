@@ -15,7 +15,8 @@ const page = () => {
     >
         <div className='
             mt-[5rem]
-            w-[80%]
+            w-full
+            sm:w-[80%]
         '>
             <div className='
                 w-full
