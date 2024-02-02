@@ -17,7 +17,7 @@ model User {
   password String?
   bio String?
   avatar String?
-  resume String
+  resume String?
   resumeDescription String?
 
   projects Project[]
