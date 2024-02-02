@@ -20,6 +20,7 @@ import {
 } from 'react-icons/bi';
 import { TbBrandNextjs } from 'react-icons/tb';
 
+import {FaJava} from "react-icons/fa";
 
 import {Github, Linkedin, AtSign} from "lucide-react";
 
@@ -108,9 +109,15 @@ export const skillsIcons = [
         Icon: SiExpress,
         name: "ExpressJs",
         color: "text-white"
-    }
+    },
+    {
+        Icon: FaJava,
+        name: "Java",
+        color: "text-white"
+    },
       
 ];
+
 
 
 export {

@@ -16,6 +16,7 @@ import { useRouter } from 'next/navigation';
 import { AiOutlinePlus } from 'react-icons/ai';
 import useProjectModal from '@/hooks/useProjectModal';
 import Card from './Card';
+import useCertificateModal from '@/hooks/useCertificateModal';
 
 interface UpdatePageProps{
     currentUser:User | null;
@@ -26,10 +27,11 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
     currentUser,
     projects
 }) => {
-    const [avatar, setAvatar] = useState("");
+    const [avatar, setAvatar] = useState(currentUser?.avatar || "");
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const projectModal = useProjectModal();
+    const certificateModal = useCertificateModal();
     
 
 
@@ -41,7 +43,9 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
         defaultValues:{
             name:currentUser?.name || "",
             newEmail:currentUser?.email || "",
-            bio:currentUser?.bio || ""
+            bio:currentUser?.bio || "",
+            resume: currentUser?.resume || "",
+            resumeDescription: currentUser?.resumeDescription || ""
         }
     });
 
@@ -61,7 +65,6 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
     const onSubmit:SubmitHandler<FieldValues> = (values) => {
         console.log(values);
         try{
-
             setIsLoading(true);
             axios.post("/api/update", {
                 email,
@@ -200,6 +203,52 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                             placeholder='Enter your bio'
                         />
                     </div>
+                    <div
+                        className='
+                        text-neutral-300
+                        mx-auto
+                        w-full
+                        p-1
+                        md:w-[80%]
+                        gap-3
+                    '
+                    >
+                        <p
+                            className='font-semibold'
+                        >
+                            Resume Link
+                        </p>
+                        <Input 
+                            id='resume'
+                            disabled={isLoading}
+                            className='w-full bg-slate-900'
+                            {...register("resume")}
+                            placeholder='Enter Resume Link'
+                        />
+                    </div>
+                    <div
+                        className='
+                        text-neutral-300
+                        mx-auto
+                        w-full
+                        p-1
+                        md:w-[80%]
+                        gap-3
+                    '
+                    >
+                        <p
+                            className='font-semibold'
+                        >
+                            Resume Description
+                        </p>
+                        <Input 
+                            id='resumeDescription'
+                            disabled={isLoading}
+                            className='w-full bg-slate-900'
+                            {...register("resumeDescription")}
+                            placeholder='Enter Resume Description'
+                        />
+                    </div>
                     <div className='flex flex-col w-full'>
                         <p className='text-neutral-300'>Avatar</p>
                         <CldUploadButton
@@ -242,8 +291,10 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         />
                     </div>
                 </form>
-                    <div className='mt-8 mr-5 grid gap-4'>
-                        <hr className='text-neutral-400' />
+
+                <hr className='text-neutral-400 mt-4' />
+                    <div className='mt-8 flex flex-row gap-6'>
+                        
                         <Button
                             isDisabled={isLoading}
                             style='md:w-[12rem]'
@@ -251,6 +302,15 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                             label='Add project'
                             onClick={() => {
                                 projectModal.onOpen();
+                            }}
+                        />
+                        <Button
+                            isDisabled={isLoading}
+                            style='md:w-[12rem]'
+                            icon={AiOutlinePlus}
+                            label='Add Certificate'
+                            onClick={() => {
+                                certificateModal.onOpen()
                             }}
                         />
                     </div>
