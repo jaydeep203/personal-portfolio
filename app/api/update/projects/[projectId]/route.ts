@@ -51,6 +51,7 @@ export async function PATCH(
              pname,
              description,
              link,
+             repositoryLink,
              image,
              techs,
              techId
@@ -83,6 +84,7 @@ export async function PATCH(
                 pname,
                 description,
                 link,
+                repositoryLink,
                 image
             }
         });

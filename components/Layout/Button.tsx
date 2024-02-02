@@ -10,6 +10,7 @@ interface ButtonProps {
     type?: "submit"| "button" | "reset" | undefined;
     link?:string;
     style?:string;
+    iconClass?:string;
     onClick?:() =>void;
 }
 
@@ -20,6 +21,7 @@ const Button = ({
   label,
   type, 
   isDisabled, 
+  iconClass,
   onClick
 }:ButtonProps) => {
 
@@ -52,7 +54,11 @@ const Button = ({
             
         >
           {label} 
-          {Icon && <Icon size={24} className="text-white p-1 m-1" />}
+          {Icon && <Icon size={24} className={twMerge(
+                    `text-white p-1 m-1`,
+                    iconClass
+  )} 
+                />}
         </button>
     </>
   )

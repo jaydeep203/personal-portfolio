@@ -5,8 +5,6 @@ import getProject from "@/app/actions/getProject";
 
 
 
-
-
 export async function POST(
     request: Request
 ){
@@ -23,6 +21,7 @@ export async function POST(
             pname,
             description,
             link,
+            repositoryLink,
             image,
             techs
         } = body;
@@ -37,6 +36,7 @@ export async function POST(
                 pname,
                 description,
                 link,
+                repositoryLink,
                 image,
                 userId:currentUser?.id as string
             }

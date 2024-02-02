@@ -42,9 +42,9 @@ export default async function Home() {
       >
 
       
-      <div className='relative -z-[1]'>
+      {/* <div className='relative -z-[1]'>
         <ParticlesBackground />
-      </div> 
+      </div>  */}
       
         <Hero />
       
@@ -72,7 +72,7 @@ export default async function Home() {
           />
         
 
-
+          
 
         
           <GetInTouchSection />

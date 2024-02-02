@@ -27,7 +27,7 @@ export default function RootLayout({
           <ProjectModal />
           <Header />
           {children}
-          <Analytics />
+          {/* <Analytics /> */}
           <Footer />
         </NextAuthProvider>
       </body>

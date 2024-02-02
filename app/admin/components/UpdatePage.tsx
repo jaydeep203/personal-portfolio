@@ -110,7 +110,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                     gap-5
                     p-1
                     md:p-5
-                    bg-neutral-100
+                    bg-slate-900
                     rounded-md
                 '
             >
@@ -123,7 +123,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                 >
                     <div>
                         <h1 className='
-                            text-black
+                            text-white
                             font-bold
                             text-2xl
                             my-4
@@ -133,7 +133,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                     </div>
                     <div
                         className='
-                            text-neutral-400
+                            text-neutral-300
                             mx-auto
                             w-full
                             p-1
@@ -149,14 +149,14 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         <Input 
                             id='name'
                             disabled={isLoading}
-                            className='w-full'
+                            className='w-full bg-slate-900'
                             {...register("name")}
                             placeholder='Enter your name'
                         />
                     </div>
                     <div
                         className='
-                        text-neutral-400
+                        text-neutral-300
                         mx-auto
                         w-full
                         p-1
@@ -172,14 +172,14 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         <Input 
                             id='newEmail'
                             disabled={isLoading}
-                            className='w-full'
+                            className='w-full bg-slate-900'
                             {...register("newEmail")}
                             placeholder='Enter your new email'
                         />
                     </div>
                     <div
                         className='
-                        text-neutral-400
+                        text-neutral-300
                         mx-auto
                         w-full
                         p-1
@@ -195,13 +195,13 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         <Input 
                             id='bio'
                             disabled={isLoading}
-                            className='w-full'
+                            className='w-full bg-slate-900'
                             {...register("bio")}
                             placeholder='Enter your bio'
                         />
                     </div>
                     <div className='flex flex-col w-full'>
-                        <p>Avatar</p>
+                        <p className='text-neutral-300'>Avatar</p>
                         <CldUploadButton
                             options={{maxFiles:1}}
                             onUpload={handleUpload}
@@ -212,7 +212,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                                     relative
                                     top-14
                                     left-8
-
+                                    rounded-md
                                 '
                             >
                                 <BiSolidEdit 
@@ -228,7 +228,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                                 alt='Avatar'
                                 height={400}
                                 width={400}
-                                className='p-5'
+                                className='p-5 rounded-md'
                             />
                         </CldUploadButton>
                         

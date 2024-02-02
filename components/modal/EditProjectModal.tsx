@@ -209,6 +209,27 @@ const EditProjectModal = () => {
                 <label
                     className='text-white text-lg ml-4 font-semibold'
                 >
+                    Repository Link
+                </label>
+                <Input 
+                    id='repositoryLink'
+                    className='
+                        bg-black
+                        text-neutral-300
+                        border-none
+                        outline-none
+                    '
+                    disabled={isLoading}
+                    {...register("repositoryLink")}
+                    placeholder='Enter project repository link'
+                />
+            </div>
+            <div
+                className='w-full grid grid-cols-1'
+            >
+                <label
+                    className='text-white text-lg ml-4 font-semibold'
+                >
                     Image
                 </label>
                 <CldUploadButton

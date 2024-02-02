@@ -24,7 +24,6 @@ const ButtonComponent:React.FC<ButtonComponentProps> = ({
 
   return (
     <div className='
-                w-full
                 p-6
                 flex
                 items-center

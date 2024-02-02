@@ -27,7 +27,8 @@ const ProjectModal = () => {
         defaultValues:{
             pname:"",
             description:"",
-            link:""
+            link:"",
+            repositoryLink:""
         }
     });
 
@@ -107,7 +108,7 @@ const ProjectModal = () => {
                         bg-black
                         text-neutral-300
                         border-none
-                        outline-none
+                        outline-white
                         hover:bg-neutral-900
                     '
                     disabled={isLoading}
@@ -129,7 +130,8 @@ const ProjectModal = () => {
                         bg-black
                         text-neutral-300
                         border-none
-                        outline-none
+                        outline-white
+                        hover:bg-neutral-900
                     '
                     disabled={isLoading}
                     placeholder='Enter project description'
@@ -150,11 +152,34 @@ const ProjectModal = () => {
                         bg-black
                         text-neutral-300
                         border-none
-                        outline-none
+                        outline-white
+                        hover:bg-neutral-900
                     '
                     disabled={isLoading}
                     placeholder='Enter project link'
                     {...register("link")}
+                />
+            </div>
+            <div
+                className='w-full grid grid-cols-1'
+            >
+                <label
+                    className='text-white text-lg ml-4 font-semibold'
+                >
+                    Repository Link
+                </label>
+                <Input 
+                    id='repositoryLink'
+                    className='
+                        bg-black
+                        text-neutral-300
+                        border-none
+                        outline-white
+                        hover:bg-neutral-900
+                    '
+                    disabled={isLoading}
+                    {...register("repositoryLink")}
+                    placeholder='Enter project repositorys link'
                 />
             </div>
             <div

@@ -1,13 +1,14 @@
 "use client";
 
-import { Button } from '@/components/exportLayout';
 import { Project } from '@prisma/client';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import {BiSolidEdit, BiSolidTrash} from "react-icons/bi";
+import {BiSolidEdit, BiSolidTrash, BiLogoGithub} from "react-icons/bi";
 import useEditProjectModal from '@/hooks/useEditProjectModal';
 import ScrollAnimation from '@/components/animation/ScrollAnimation';
 import ButtonComponent from '@/components/projectsSection/ButtonComponent';
+import { Button } from '@/components/exportLayout';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -22,6 +23,7 @@ const Card: React.FC<cardProps> = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const editProject = useEditProjectModal();
+  const router = useRouter();
   
   const handleClick = () => {
     setIsLoading(true);
@@ -30,6 +32,8 @@ const Card: React.FC<cardProps> = ({
     editProject.onOpen();
     setIsLoading(false);
   }
+
+
 
   return (
     <>
@@ -84,11 +88,25 @@ const Card: React.FC<cardProps> = ({
               {projects?.description}
             </p>
           </ScrollAnimation>
-          <ScrollAnimation>
-            
-              <ButtonComponent link={projects?.link}  />
-            
-          </ScrollAnimation>
+          <div className='
+            w-full
+            flex
+            flex-row
+            items-center
+          '>
+            <ScrollAnimation>
+                <ButtonComponent link={projects?.link}  />
+            </ScrollAnimation>
+            <ScrollAnimation>
+              <Button 
+                label='Github'
+                icon={BiLogoGithub}
+                onClick={() => router.replace(projects.repositoryLink || "")}
+                style='bg-neutral-100 hover:bg-neutral-200 text-black hover:text-neutral-900 py-2'
+                iconClass='text-black w-6 h-6'
+              />
+            </ScrollAnimation>
+          </div>
           
           {
             isAdmin && (

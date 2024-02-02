@@ -11,6 +11,8 @@ import { Project } from '@prisma/client';
 import ButtonComponent from './ButtonComponent';
 import getTechstack from '@/app/actions/getTechstack';
 import ScrollAnimation from '../animation/ScrollAnimation';
+import { Button } from '../ui/button';
+import {FaGithub} from "@/components/icons/icons";
 
 interface ProjectsSectionProps {
     project?:Project | null;
@@ -66,10 +68,34 @@ const ProjectsSection:React.FC<ProjectsSectionProps> = async({
                         image={project?.image}
                     />
                 
-                    <ButtonComponent
-                        link={project?.link}
-                        isButton={isButton}
-                    />
+                    <div className='
+                        flex
+                        flex-row
+                        items-center
+                        justify-center
+                    '>
+                        <ButtonComponent
+                            link={project?.link}
+                            isButton={isButton}
+                        />
+
+                        <Button className='
+                            w-fit
+                            bg-neutral-100
+                            text-black
+                            hover:bg-neutral-200
+                            hover:text-neutral-900
+                        '>
+                            <a href={project?.repositoryLink || ""} className='
+                                flex
+                                flex-row 
+                                gap-2
+                                items-center
+                            '>
+                                Github <FaGithub />
+                            </a>
+                        </Button>
+                    </div>
                 
 
                 
