@@ -18,29 +18,25 @@ export async function POST(
         const body = await request.json();
         const {
             title,
-            description,
-            verifyLink,
-            tech
+            school
         } = body;
 
-        if(!title || !description || !verifyLink){
+        if(!title || !school){
             return new NextResponse("Required all fields", {status:400});
         }
 
 
-        const certificate = await prismadb.certificate.create({
+        const educations = await prismadb.education.create({
             data:{
                 title,
-                description,
-                verifyLink,
-                icon:tech,
+                school,
                 userId:currentUser?.id as string
             }
         });
 
 
         
-        return NextResponse.json(certificate);
+        return NextResponse.json(educations);
         
     } catch (error) {
         console.log(error);

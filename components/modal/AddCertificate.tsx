@@ -34,8 +34,7 @@ const AddCertificate = ({
         defaultValues:{
             title:"",
             description:"",
-            verifyLink:"",
-            icon:""
+            verifyLink:""
         }
     });
 
@@ -44,6 +43,7 @@ const AddCertificate = ({
             
             setIsLoading(true);
             axios.post("/api/update/certificates", {
+                tech,
                 ...values
             })
             .then(() => {
@@ -70,7 +70,7 @@ const AddCertificate = ({
 
   return (
     <Modal
-        title="Add a project"
+        title="Add a certificate"
         isLoading={isLoading}
         isOpen={resumeModal.isOpen}
         handleClose={handleClose}

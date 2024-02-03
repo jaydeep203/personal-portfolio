@@ -102,13 +102,9 @@ const Header:React.FC<HeaderProps> = ({
             >
                 {
                     skillsIcons.map(({Icon, name, color}, i)=> (
-                        <>
-
-                        
-                        {
                             techs?.includes(name)  && (
                                     <div 
-                                        
+                                        key={i}
                                         className="
                                             bg-neutral-900
                                             p-1
@@ -127,9 +123,6 @@ const Header:React.FC<HeaderProps> = ({
                                 
                         </div>
                             )
-                        }
-                        </>
-                    
                     ))
                 }
             </div>

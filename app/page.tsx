@@ -7,6 +7,8 @@ import getUser from './actions/getUser';
 import {ProjectScroll} from '@/components/pageSections/projectsScroll/ProjectScroll';
 import Education from '@/components/Education';
 import Certificates from '@/components/certificates/Certificates';
+import getCertificates from './actions/getCertificates';
+import getEducations from './actions/getEducations';
 
 export const revalidate = 0;
 
@@ -14,6 +16,8 @@ export default async function Home() {
   
 
   const projects = await getProjects();
+  const certificates = await getCertificates();
+  const educations = await getEducations();
   const user = await getUser();
 
 
@@ -42,9 +46,9 @@ export default async function Home() {
       >
 
       
-      {/* <div className='relative -z-[1]'>
+      <div className='relative -z-[1]'>
         <ParticlesBackground />
-      </div>  */}
+      </div> 
       
         <Hero />
       
@@ -56,9 +60,9 @@ export default async function Home() {
           bio={user?.bio}
         /> 
         
-        <Certificates />
+        <Certificates certificates={certificates} />
 
-        <Education />
+        <Education educations={educations} />
 
 
         <SkillCarousel /> 

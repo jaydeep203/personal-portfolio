@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import { useSession } from 'next-auth/react';
 import Input  from './Input';
 import ImageUploader from './ImageUploader';
@@ -10,29 +10,40 @@ import { CldUploadButton } from 'next-cloudinary';
 import { BiSolidEdit } from "react-icons/bi";
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { Project, User } from '@prisma/client';
+import { Certificate, Education, Project, User } from '@prisma/client';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { AiOutlinePlus } from 'react-icons/ai';
 import useProjectModal from '@/hooks/useProjectModal';
 import Card from './Card';
+import CardCert from "@/components/certificates/Card";
 import useCertificateModal from '@/hooks/useCertificateModal';
+import { IconType } from 'react-icons';
+import { skillsIcons } from '@/components/icons/icons';
+import useEducationModal from '@/hooks/useEducationModal';
+import ScrollAnimation from '@/components/animation/ScrollAnimation';
+import {School, Computer} from "lucide-react";
 
 interface UpdatePageProps{
     currentUser:User | null;
     projects: Project[];
+    certificates: Certificate[];
+    educations: Education[];
 }
 
 const UpdatePage:React.FC<UpdatePageProps> = ({
     currentUser,
-    projects
+    projects,
+    certificates,
+    educations
 }) => {
     const [avatar, setAvatar] = useState(currentUser?.avatar || "");
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
     const projectModal = useProjectModal();
+    const educationModal = useEducationModal();
     const certificateModal = useCertificateModal();
-    
+
 
 
     const {
@@ -292,7 +303,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                     </div>
                 </form>
 
-                <hr className='text-neutral-400 mt-4' />
+                
                     <div className='mt-8 flex flex-row gap-6'>
                         
                         <Button
@@ -302,15 +313,6 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                             label='Add project'
                             onClick={() => {
                                 projectModal.onOpen();
-                            }}
-                        />
-                        <Button
-                            isDisabled={isLoading}
-                            style='md:w-[12rem]'
-                            icon={AiOutlinePlus}
-                            label='Add Certificate'
-                            onClick={() => {
-                                certificateModal.onOpen()
                             }}
                         />
                     </div>
@@ -327,6 +329,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                         w-full
                         flex-row
                         overflow-x-scroll
+                        no-scrollbar
                     '
                 >
                     {
@@ -342,6 +345,115 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                     }
                 </div>
                 
+                <hr className='text-neutral-400 mt-4' />
+
+                <div className='mt-8 flex flex-row gap-6'>
+                        
+                        <Button
+                            isDisabled={isLoading}
+                            style='md:w-[12rem]'
+                            icon={AiOutlinePlus}
+                            label='Add certificate'
+                            onClick={() => {
+                                certificateModal.onOpen();
+                            }}
+                        />
+                        
+                </div>
+                
+                <div 
+                    className='
+                        p-4
+                        gap-5
+                        flex
+                        w-full
+                        flex-row
+                        overflow-x-scroll
+                        no-scrollbar
+                    '
+                >
+                    {
+                        certificates?.map(({id, icon, title, description, verifyLink})=>(
+                            
+                                <div key={id}>
+                                    <CardCert 
+                                        isAdmin={true}
+                                        title={title}
+                                        description={description}
+                                        verifyLink={verifyLink}
+                                        iconName={icon}
+                                    />
+                                </div>
+                            )
+                                
+                        )
+                        
+                    }
+                </div>
+
+                <hr className='text-neutral-400 mt-4' />
+
+                <div className='mt-8 flex flex-row gap-6'>
+                        
+                        <Button
+                            isDisabled={isLoading}
+                            style='md:w-[12rem]'
+                            icon={AiOutlinePlus}
+                            label='Add education'
+                            onClick={() => {
+                                educationModal.onOpen();
+                            }}
+                        />
+                        
+                </div>
+                
+                <div 
+                    className='
+                        p-4
+                        gap-5
+                        flex
+                        w-full
+                        flex-row
+                        overflow-x-scroll
+                        no-scrollbar
+                    '
+                >
+                    {
+                        educations?.map(({id, title, school})=>(
+                            
+                            <div 
+                                key={id}
+                                 className='
+                                    px-2 
+                                    w-[90%] 
+                                    sm:min-w-[40%]
+                                    py-5 
+                                    text-white
+                                    hover:bg-slate-700 
+                                    hover:bg-opacity-30 
+                                    flex 
+                                    flex-col 
+                                    gap-4
+                                '>
+                                <ScrollAnimation>
+                                    <School className='w-12 h-12' />
+                                </ScrollAnimation>
+                                <ScrollAnimation>
+                                    <h1 className='text-2xl font-bold'>
+                                        {title}
+                                    </h1>
+                                </ScrollAnimation>
+                                <ScrollAnimation>
+                                    <p className='opacity-60'>{school}</p>
+                                </ScrollAnimation>
+                            </div>
+                            )
+                                
+                        )
+                        
+                    }
+                </div>
+
             </div>
         </div>
     </div>

@@ -1,24 +1,30 @@
 "use client";
 
-import React from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { IconType } from 'react-icons';
 import { Button } from '../ui/button';
 import {ExternalLink} from "lucide-react";
 import { useRouter } from 'next/navigation';
 import ScrollAnimation from '../animation/ScrollAnimation';
+import { skillsIcons } from '../icons/icons';
+import { BiAdjust } from 'react-icons/bi';
 
 interface cardProps{
-    icon: IconType;
-    title: string;
-    description: string;
-    link: string;
+    isAdmin?:boolean;
+    icon?: IconType;
+    iconName?:string | null;
+    title: string | null;
+    description: string | null;
+    verifyLink: string | null;
 }
 
 const Card:React.FC<cardProps> = ({
+    isAdmin,
+    iconName,
     icon:Icon,
     title,
     description,
-    link
+    verifyLink
 }) => {
     const router = useRouter();
 
@@ -26,7 +32,7 @@ const Card:React.FC<cardProps> = ({
     <div className='
         w-[95%]
         mx-auto
-        sm:w-[20vw]
+        lg:w-[20vw]
         bg-slate-800
         bg-opacity-30
         hover:bg-opacity-50
@@ -39,7 +45,17 @@ const Card:React.FC<cardProps> = ({
     '>
         <div className='text-white'>
             <ScrollAnimation>
-                <Icon className='text-white w-12 h-12' />
+            { Icon && <Icon className="text-white w-12 h-12" /> }
+               {
+                    skillsIcons.map(({Icon, name, color}, i)=> (
+                            iconName===name  && (
+                                    <Icon 
+                                        key={i}
+                                        className={`text-white w-12 h-12 hover:${color}`}
+                                    />    
+                    )
+                    ))
+                }
             </ScrollAnimation>
         </div>
         <div className='flex flex-col gap-3'>
@@ -63,7 +79,7 @@ const Card:React.FC<cardProps> = ({
 
             >Visit <ExternalLink className='w-4 h-4' /></Button>
             <Button
-                onClick={() => router.push(link)}
+                onClick={() => router.push(verifyLink || "")}
                 variant="outline"
                 title='visit'
                 className='flex flex-row gap-3 bg-slate-800 hover:bg-slate-700 text-white w-[45%] bottom-4'

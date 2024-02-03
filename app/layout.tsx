@@ -7,6 +7,7 @@ import NextAuthProvider from './providers/NextAuthProvider';
 import ProjectModal from '@/components/modal/ProjectModal';
 import {Analytics} from "@vercel/analytics/react";
 import AddCertificate from '@/components/modal/AddCertificate';
+import EducationModal from '@/components/modal/EducationModal';
 
 export const metadata = {
   title: 'Portfolio App',
@@ -25,10 +26,11 @@ export default function RootLayout({
         <ToasterContext />
         <NextAuthProvider>
           <ProjectModal />
+          <EducationModal />
           <AddCertificate />
           <Header />
           {children}
-          {/* <Analytics /> */}
+          <Analytics />
           <Footer />
         </NextAuthProvider>
       </body>

@@ -4,11 +4,15 @@ import UpdatePage from './components/UpdatePage';
 import getCurrentUser from '../actions/getCurrentUser';
 import getProjects from '../actions/getProjects';
 import EditProjectModal from '@/components/modal/EditProjectModal';
+import getCertificates from '../actions/getCertificates';
+import getEducations from '../actions/getEducations';
 
 const page = async() => {
 
   const currentUser = await getCurrentUser();
   const projects = await getProjects();
+  const certificates = await getCertificates();
+  const educations = await getEducations();
 
   return (
     <div className="
@@ -28,7 +32,13 @@ const page = async() => {
           mt-[5rem]
         '
       >
-        <UpdatePage projects={projects} currentUser={currentUser} />
+        <UpdatePage 
+          projects={projects} 
+          currentUser={currentUser} 
+          certificates={certificates} 
+          educations={educations}
+          
+        />
       </div>
       <EditProjectModal />
     </div>
