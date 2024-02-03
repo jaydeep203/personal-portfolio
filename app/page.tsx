@@ -60,7 +60,7 @@ export default async function Home() {
           bio={user?.bio}
         /> 
         
-        <Certificates certificates={certificates} />
+        <Certificates certificates={certificates} user={user} />
 
         <Education educations={educations} />
 

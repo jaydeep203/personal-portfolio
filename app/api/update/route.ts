@@ -10,6 +10,7 @@ export async function POST(
         email,
         bio,
         resume,
+        resumePreview,
         resumeDescription,
         avatar
     } = body;
@@ -27,6 +28,7 @@ export async function POST(
                 email,
                 bio,
                 resume,
+                resumePreview,
                 resumeDescription,
                 avatar
             }

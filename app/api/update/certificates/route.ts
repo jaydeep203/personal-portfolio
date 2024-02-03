@@ -20,7 +20,10 @@ export async function POST(
             title,
             description,
             verifyLink,
-            tech
+            previewLink,
+            tech,
+            companyName,
+            companyLogo
         } = body;
 
         if(!title || !description || !verifyLink){
@@ -33,7 +36,10 @@ export async function POST(
                 title,
                 description,
                 verifyLink,
+                previewLink,
                 icon:tech,
+                companyName,
+                companyLogo,
                 userId:currentUser?.id as string
             }
         });

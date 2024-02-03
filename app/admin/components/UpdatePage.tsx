@@ -56,6 +56,7 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
             newEmail:currentUser?.email || "",
             bio:currentUser?.bio || "",
             resume: currentUser?.resume || "",
+            resumePreview: currentUser?.resumePreview || "",
             resumeDescription: currentUser?.resumeDescription || ""
         }
     });
@@ -235,6 +236,29 @@ const UpdatePage:React.FC<UpdatePageProps> = ({
                             className='w-full bg-slate-900'
                             {...register("resume")}
                             placeholder='Enter Resume Link'
+                        />
+                    </div>
+                    <div
+                        className='
+                        text-neutral-300
+                        mx-auto
+                        w-full
+                        p-1
+                        md:w-[80%]
+                        gap-3
+                    '
+                    >
+                        <p
+                            className='font-semibold'
+                        >
+                            Resume Preview Link
+                        </p>
+                        <Input 
+                            id='resumePreview'
+                            disabled={isLoading}
+                            className='w-full bg-slate-900'
+                            {...register("resumePreview")}
+                            placeholder='Enter Resume Preview Link'
                         />
                     </div>
                     <div

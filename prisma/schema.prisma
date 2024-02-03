@@ -18,6 +18,7 @@ model User {
   bio String?
   avatar String?
   resume String?
+  resumePreview String?
   resumeDescription String?
 
   projects Project[]
@@ -57,7 +58,10 @@ model Certificate{
   title String
   description String
   verifyLink String
+  previewLink String?
   icon String?
+  companyName String?
+  companyLogo String?
   createdAt DateTime @default(now())
   userId String @db.ObjectId
 

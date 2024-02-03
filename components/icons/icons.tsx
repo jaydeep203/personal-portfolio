@@ -118,6 +118,19 @@ export const skillsIcons = [
       
 ];
 
+export const companyIcons = [
+    {
+        Icon: FaHackerrank,
+        name: "HackerRank",
+        color: "text-green-500"
+    },
+    {
+        Icon: SiCoursera,
+        name: "Coursera",
+        color: "text-sky-500"
+    },
+]
+
 
 
 export {

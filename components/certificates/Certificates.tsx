@@ -5,14 +5,16 @@ import React from 'react';
 import {FcKindle} from "react-icons/fc";
 import {GrReactjs} from "react-icons/gr";
 import {FaJava} from "react-icons/fa";
-import { Certificate } from '@prisma/client';
+import { Certificate, User } from '@prisma/client';
 
 interface certificatesProps{
   certificates: Certificate[];
+  user: User | null;
 }
 
 const Certificates:React.FC<certificatesProps> = ({
-  certificates
+  certificates,
+  user
 }) => {
   return (
     <div className='
@@ -39,10 +41,8 @@ const Certificates:React.FC<certificatesProps> = ({
           <Card
             icon={FcKindle}
             title='Resume'
-            description='Full Stack Web Developer with a strong command of front-end and back-end technologies.
-              Passionate about creating seamless user experiences and staying current with industry best practices.
-            '
-            verifyLink='https://drive.google.com/uc?export=view&id=1uKBH--Ep5J_3m4gliAAej19-hjVDYuff'
+            description={user?.resumeDescription || ""}
+            verifyLink={user?.resume || "/"}
           />
           {
             certificates.map(({title, description, icon, verifyLink},index) => (
