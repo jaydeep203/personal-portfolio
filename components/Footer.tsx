@@ -6,7 +6,9 @@ import {
   HiOutlineMail,
   Linkedin,
   Github,
-  AtSign
+  AtSign,
+  SiLeetcode,
+  SiGeeksforgeeks
 } from "@/components/icons/icons";
 
 
@@ -64,6 +66,8 @@ const Footer = () => {
           '>
             <a href="https://www.linkedin.com/in/jaydeep-deshpande-68601822a/" target='blank'><Linkedin className='text-white hover:text-blue-600' size={30} /> </a>
             <a href="https://github.com/jaydeep203" target='blank'><Github className='text-white hover:text-slate-400' size={30} /> </a>
+            <a href="https://leetcode.com/mrjaydeep2003/" target='blank'><SiLeetcode className='text-white hover:text-yellow-700' size={30} /> </a>
+            <a href="https://auth.geeksforgeeks.org/user/mrjaydeep2003/?utm_source=geeksforgeeks&utm_medium=my_profile&utm_campaign=auth_user" target='blank'><SiGeeksforgeeks className='text-white hover:text-green-700' size={30} /> </a>
             <a href="mailto:jaydeepdeshpande03@outlook.com" target='blank'><AtSign className='text-white hover:text-red-400' size={30} /> </a>
           </div>
         </div>

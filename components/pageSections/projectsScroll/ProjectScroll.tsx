@@ -31,7 +31,7 @@ export function ProjectScroll({projects}:carouselProps) {
     >
       <CarouselContent>
         {projects.map((project, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem key={index} className="basis-[90%] md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
               <Card isAdmin={false} projects={project} />
             </div>

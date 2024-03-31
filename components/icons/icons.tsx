@@ -8,7 +8,7 @@ import {FaHackerrank} from "react-icons/fa";
 import {HiOutlineMail} from "react-icons/hi";
 import { AiFillHtml5, AiOutlineDownCircle } from "react-icons/ai";
 import { DiCss3, DiSass } from 'react-icons/di';
-import { SiTailwindcss, SiJavascript, SiSupabase, SiPrisma, SiExpress, SiCoursera } from 'react-icons/si';
+import { SiTailwindcss, SiJavascript, SiSupabase, SiPrisma, SiExpress, SiCoursera, SiLeetcode, SiGeeksforgeeks } from 'react-icons/si';
 import { 
     BiLogoTypescript, 
     BiLogoReact, 
@@ -144,5 +144,7 @@ export {
     SiCoursera,
     AtSign,
     Linkedin,
-    Github
+    Github,
+    SiLeetcode,
+    SiGeeksforgeeks
 };

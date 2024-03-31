@@ -38,7 +38,6 @@ const Card: React.FC<cardProps> = ({
   return (
     <>
       <div className='
-        p-3
         flex
         justify-center
       '>
