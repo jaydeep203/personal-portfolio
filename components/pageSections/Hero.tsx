@@ -6,6 +6,8 @@ import ScrollAnimation from '../animation/ScrollAnimation';
 import { Button } from '../ui/button';
 import {Presentation, Info, Book, Computer, Stars, Link2} from "lucide-react";
 import { useRouter } from 'next/navigation';
+import { SiLeetcode, SiGeeksforgeeks, Linkedin, Github } from '@/components/icons/icons';
+import Link from 'next/link';
 
 const Hero = () => {
     const router = useRouter();
@@ -84,6 +86,7 @@ const Hero = () => {
             text-white
         '
     >
+        {/* Title */}
         <ScrollAnimation>
             <div
                 className=''
@@ -107,6 +110,8 @@ const Hero = () => {
                 
             </div>
         </ScrollAnimation>
+
+        {/* Description */}
         <ScrollAnimation>
             <div className='
                 mt-5
@@ -125,6 +130,58 @@ const Hero = () => {
 
             </div>
         </ScrollAnimation>
+
+
+        {/* Coding Profiles */}
+        <div className='
+            flex
+            flex-row
+            gap-5
+            my-5
+        '>
+            <Link target='_blank' href={"https://leetcode.com/mrjaydeep2003"} 
+                className='
+                    bg-white 
+                    text-yellow-700 
+                    p-2 
+                    rounded-full
+                '
+            >
+                <SiLeetcode  className='h-8 w-8'/>
+            </Link>
+            <Link target='_blank' href={"https://auth.geeksforgeeks.org/user/mrjaydeep2003/?utm_source=geeksforgeeks&utm_medium=my_profile&utm_campaign=auth_user"}
+                className='
+                    bg-white 
+                    text-green-500 
+                    p-2 
+                    rounded-full
+                '
+            >
+                <SiGeeksforgeeks  className='h-8 w-8'/>
+            </Link>
+            <Link target='_blank' href={"https://github.com/jaydeep203"}
+                className='
+                    bg-white 
+                    text-gray-800 
+                    p-2 
+                    rounded-full
+                '
+            >
+                <Github className='h-8 w-8'/>
+            </Link>
+            <Link target='_blank' href={"https://www.linkedin.com/in/jaydeep-deshpande-68601822a/"}
+                className='
+                    bg-white 
+                    text-blue-500 
+                    p-2 
+                    rounded-full
+                '
+            >
+                <Linkedin className='h-8 w-8'/>
+            </Link>
+        </div>
+       
+        {/* Front Buttons */}
         <div className='flex flex-row gap-4 mt-5'>
             <Button
                 onClick={handleProjectsBtn}
@@ -185,6 +242,8 @@ const Hero = () => {
                 <span className='hidden md:flex'>Get in Touch</span>
             </Button>
         </div>
+
+        {/* Front Scroll Button */}
         <div 
             onClick={handleScrollBtn}
             
