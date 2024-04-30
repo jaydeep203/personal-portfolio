@@ -141,43 +141,55 @@ const Hero = () => {
         '>
             <Link target='_blank' href={"https://leetcode.com/mrjaydeep2003"} 
                 className='
-                    bg-white 
-                    text-yellow-700 
+                    text-yellow-500 
                     p-2 
                     rounded-full
+                    outline
+                    outline-white
+                    outline-[1px]
+                    hover:scale-110
                 '
             >
-                <SiLeetcode  className='h-8 w-8'/>
+                <SiLeetcode  className='h-5 w-5 sm:h-8 sm:w-8'/>
             </Link>
             <Link target='_blank' href={"https://auth.geeksforgeeks.org/user/mrjaydeep2003/?utm_source=geeksforgeeks&utm_medium=my_profile&utm_campaign=auth_user"}
                 className='
-                    bg-white 
                     text-green-500 
                     p-2 
                     rounded-full
+                    outline
+                    outline-white
+                    outline-[1px]
+                    hover:scale-110
                 '
             >
-                <SiGeeksforgeeks  className='h-8 w-8'/>
+                <SiGeeksforgeeks  className='h-5 w-5 sm:h-8 sm:w-8'/>
             </Link>
             <Link target='_blank' href={"https://github.com/jaydeep203"}
                 className='
-                    bg-white 
-                    text-gray-800 
+                    text-white
                     p-2 
                     rounded-full
+                    outline
+                    outline-white
+                    outline-[1px]
+                    hover:scale-110
                 '
             >
-                <Github className='h-8 w-8'/>
+                <Github className='h-5 w-5 sm:h-8 sm:w-8'/>
             </Link>
             <Link target='_blank' href={"https://www.linkedin.com/in/jaydeep-deshpande-68601822a/"}
                 className='
-                    bg-white 
-                    text-blue-500 
+                    text-blue-400 
                     p-2 
                     rounded-full
+                    outline
+                    outline-white
+                    outline-[1px]
+                    hover:scale-110
                 '
             >
-                <Linkedin className='h-8 w-8'/>
+                <Linkedin className='h-5 w-5 sm:h-8 sm:w-8'/>
             </Link>
         </div>
        
