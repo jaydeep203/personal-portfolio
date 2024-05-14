@@ -9,6 +9,7 @@ import Education from '@/components/Education';
 import Certificates from '@/components/certificates/Certificates';
 import getCertificates from './actions/getCertificates';
 import getEducations from './actions/getEducations';
+import getRandom from './actions/getRandom';
 
 export const revalidate = 0;
 
@@ -20,10 +21,20 @@ export default async function Home() {
   const educations = await getEducations();
   const user = await getUser();
 
+  const projectIds = [
+    "64f21d429deb9b023b13fa7d",
+    "64f21e279deb9b023b13fa7e",
+    "64f21f5c9deb9b023b13fa7f",
+    "64f220699deb9b023b13fa80",
+    "64f2217f9deb9b023b13fa81",
+    "6599817e2e84f2e15782928f",
+    "65b61397fa59499161b47db7",
+    "65b614b4fa59499161b47db9",
+  ];
+  const index = Math.floor(Math.random()*projectIds.length);
+  const projectId = projectIds[index];
 
-
-  const project = projects?.[0];
-
+  const randomProject = await getRandom(projectId);
   
   return (
     <>
@@ -71,7 +82,7 @@ export default async function Home() {
         
           <ProjectsSection
             isButton={true}
-            project={project}
+            project={randomProject}
           />
         
         
