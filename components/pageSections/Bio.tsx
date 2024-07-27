@@ -66,7 +66,6 @@ const Bio:React.FC<BioProps> = ({
 
           '
         >
-          <ScrollAnimation>
             <div
               
               className='
@@ -94,7 +93,6 @@ const Bio:React.FC<BioProps> = ({
                 '
               />
             </div>
-          </ScrollAnimation>
           <ScrollAnimation>
             <div
               className='
@@ -107,7 +105,7 @@ const Bio:React.FC<BioProps> = ({
               <hr className='text-white' />
               
                 <p className='p-5 text-neutral-300 '>
-                  <BioTyped bio={bio} />
+                  {bio}
                 </p>
               
               <div className='flex flex-row gap-5'>

@@ -10,7 +10,7 @@ interface educationProps{
     educations:Education[];
 }
 
-const Education:React.FC<educationProps> = ({
+const EducationComp:React.FC<educationProps> = ({
     educations
 }) => {
   return (
@@ -39,6 +39,7 @@ const Education:React.FC<educationProps> = ({
             {
                 educations.map(({id, title, school}) => (
                     <div 
+                        key={id}
                         className='
                             px-2 
                             w-full 
@@ -68,4 +69,4 @@ const Education:React.FC<educationProps> = ({
   )
 }
 
-export default Education
+export default EducationComp

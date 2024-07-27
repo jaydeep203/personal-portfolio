@@ -31,37 +31,41 @@ const Header:React.FC<HeaderProps> = ({
             md:flex-row 
             w-full
         '>
+            {/* tagline, name, description */}
             <div 
                 className='
                     flex
                     flex-col
                     w-[90%]
-                    md:w-[70%]
+                    md:w-[90%]
                     p-1
-                    gap-4
+                    gap-2
+                    md:gap-4
                 '
             >
                 <ScrollAnimation>
                     <div
-                        className='mx-1 text-sm'
+                        className='mx-1 text-xs'
                     >
                         Tagline
                     </div>
                 </ScrollAnimation>
                 <ScrollAnimation>
                     <div 
-                        className='mx-1 font-bold text-white text-lg md:text-3xl'
+                        className='mx-1 font-bold text-white md:text-xl'
                     >
                         {pname}
                     </div>
                 </ScrollAnimation>
                 <ScrollAnimation>
-                    <div className='w-full md:mx-1 md:w-[80%]'>
+                    <div className='w-full text-sm leading-relaxed md:mx-1 md:leading-normal md:w-[95%]'>
                         {description}
                     </div>
                 </ScrollAnimation>
             </div>
-            <div 
+
+            {/* Services component */}
+            {/* <div 
                 className='
                     w-[50%]
                     md:w-[30%]
@@ -75,20 +79,23 @@ const Header:React.FC<HeaderProps> = ({
                 <h1 
                     className='
                         font-bold
-                        text-lg
+                        text-sm
                         text-white
                     '
                 >
                     Services
                 </h1>
-                <p>
+                <p className='text-xs'>
                     Ux Design
                 </p>
-                <p>
+                <p className='text-xs'>
                     Ui Design
                 </p>
-            </div>
+            </div> */}
+
         </div>
+
+        {/* skills icons */}
             <div
                 className='
                     p-4

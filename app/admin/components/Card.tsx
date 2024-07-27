@@ -24,7 +24,7 @@ const Card: React.FC<cardProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const editProject = useEditProjectModal();
   const router = useRouter();
-  
+
   const handleClick = () => {
     setIsLoading(true);
     editProject.onSet(projects.id);

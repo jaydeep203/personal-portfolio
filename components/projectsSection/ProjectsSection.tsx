@@ -56,17 +56,32 @@ const ProjectsSection:React.FC<ProjectsSectionProps> = async({
                     md:p-8
                     flex
                     flex-col
-                    gap-10
+                    gap-6
                 '
             >
+                <div className='grid grid-cols-1 md:grid-cols-2'>
+
                     <Header 
                         techs={techstack?.techs}
                         pname={project?.pname}
                         description={project?.description}
                     />
+
                     <ImageComponent
                         image={project?.image}
                     />
+
+                </div>
+
+                    {/* <Header 
+                        techs={techstack?.techs}
+                        pname={project?.pname}
+                        description={project?.description}
+                    />
+
+                    <ImageComponent
+                        image={project?.image}
+                    /> */}
                 
                     <div className='
                         flex

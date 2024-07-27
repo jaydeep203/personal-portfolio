@@ -35,6 +35,7 @@ export default async function Home() {
   const projectId = projectIds[index];
 
   const randomProject = await getRandom(projectId);
+
   
   return (
     <>

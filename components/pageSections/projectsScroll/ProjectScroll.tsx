@@ -16,6 +16,7 @@ interface carouselProps{
 }
 
 export function ProjectScroll({projects}:carouselProps) {
+
   return (
     <Carousel
         plugins={[

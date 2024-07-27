@@ -30,7 +30,7 @@ export default function RootLayout({
           <AddCertificate />
           <Header />
           {children}
-          <Analytics />
+          {/* <Analytics /> */}
           <Footer />
         </NextAuthProvider>
       </body>

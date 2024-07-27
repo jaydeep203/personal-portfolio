@@ -27,16 +27,16 @@ const Nav = ({active, href, label, icon:Icon}:NavProps) => {
               flex-col
               justify-center
               items-center
-              hover:text-[#9580ff]
+              hover:text-sky-500
               transition
               text-sm
-              ${active? "text-[#9580ff]" : "text-white"}
+              ${active? "text-sky-500" : "text-white"}
           `}
       href={href}> 
         <Icon size={20} />
         {label}
       </Link>
-      {active &&  <hr className='font-bold w-full text-[#9580ff] bg-[#9580ff]' /> }
+      {active &&  <hr className='font-bold w-full text-sky-500' /> }
 
     </div>
   )
