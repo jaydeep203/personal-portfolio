@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Project } from "@prisma/client"
+import ProjectCardFlowbit from "./ProjectCardFlowbit";
 
 interface carouselProps{
     projects: Project[];
@@ -34,7 +35,7 @@ export function ProjectScroll({projects}:carouselProps) {
         {projects.map((project, index) => (
           <CarouselItem key={index} className="basis-[90%] md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
-              <Card isAdmin={false} projects={project} />
+              <ProjectCardFlowbit project={project} />
             </div>
           </CarouselItem>
         ))}

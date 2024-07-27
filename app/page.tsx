@@ -10,6 +10,7 @@ import Certificates from '@/components/certificates/Certificates';
 import getCertificates from './actions/getCertificates';
 import getEducations from './actions/getEducations';
 import getRandom from './actions/getRandom';
+import ProjectCardFlowbit from '@/components/pageSections/projectsScroll/ProjectCardFlowbit';
 
 export const revalidate = 0;
 
