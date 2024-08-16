@@ -15,6 +15,7 @@ import { Button } from '../ui/button';
 import {FaGithub} from "@/components/icons/icons";
 
 interface ProjectsSectionProps {
+    i:string;
     project?:Project | null;
     isButton?:boolean;
 }
@@ -22,6 +23,7 @@ interface ProjectsSectionProps {
 
 
 const ProjectsSection:React.FC<ProjectsSectionProps> = async({
+    i,
     project,
     isButton
 }) => {
@@ -37,6 +39,7 @@ const ProjectsSection:React.FC<ProjectsSectionProps> = async({
 
   return (
     <div 
+        id={i}
         className='
             w-full
             rounded-lg

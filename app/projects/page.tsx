@@ -1,11 +1,11 @@
 "use client";
 import ProjectsSection from '@/components/projectsSection/ProjectsSection'
-import React, { useCallback, useEffect, useState } from 'react'
-import getProjects from '../actions/getProjects';
-import getTechstack from '../actions/getTechstack';
-import ScrollAnimation from '@/components/animation/ScrollAnimation';
+import React, {useEffect, useState } from 'react'
 import axios from 'axios';
 import { Project } from '@prisma/client';
+import { Button } from '@/components/ui/button';
+import LoaderElement from './LoaderElement';
+import LoadMoreElement from './LoadMoreElement';
 
 export const revalidate =0;
 
@@ -14,22 +14,20 @@ const Page = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [skip, setSkip] = useState(0);
   const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [lastScroll, setLastScroll] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(true);
 
-  console.log(projects);
-
-
   const fetchData = async () => {
-    setLoading(true);
+    setLoadingMore(true);
     setError(null);
   
     try {
-      const response = await fetch(`https://portfolio-server-wl2m.onrender.com/api/v1/project?skip=${skip}&limit=18`);
-      const data = await response.json();
-      if (data.length > 0) {
-        setProjects(prevItems => [...prevItems, ...data]);
-        setSkip(prevSkip => prevSkip + 1);
+      const response = await axios.get(`https://portfolio-server-wl2m.onrender.com/api/v1/project?skip=${skip}&limit=5`);
+      if (response.data.length > 0) {
+        setProjects(prevItems => prevItems?[...prevItems, ...response.data] : response.data);
+        setLastScroll((projects.length-1).toString());
       } else {
         setHasMore(false);
       }
@@ -38,47 +36,36 @@ const Page = () => {
       console.error(error);
       setError("Failed to load projects.");
     } finally {
+      setLoadingMore(false);
       setLoading(false);
     }
+
   };
+
+
 
   useEffect(() => {
     fetchData();
-  },[]);
+  },[skip]);
 
-  // const handleScroll = useCallback(() => {
-  //   // if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || loading) {
-  //   //   return;
-  //   // }
-  //   // fetchData();
 
-  //   if (loading || !hasMore) return;
+  
+  useEffect(() => {
+    if (lastScroll !== null) {
+      document.getElementById(lastScroll)?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }, [projects]);
+  
 
-  //   const threshold = 300;
-  //   const scrollPosition = window.innerHeight + document.documentElement.scrollTop;
-  //   const bottomPosition = document.documentElement.offsetHeight - threshold;
-
-  //   if (scrollPosition >= bottomPosition && !loading) {
-  //     fetchData();
-  //   }
-  // }, [loading, hasMore]);
-
-  // useEffect(() => {
-  //   const debouncedHandleScroll = debounce(handleScroll, 200);
-  //   window.addEventListener('scroll', debouncedHandleScroll);
-  //   return () => window.removeEventListener('scroll', debouncedHandleScroll);
-  // }, [handleScroll]);
-
-  // function debounce(func: () => void, wait: number) {
-  //   let timeout: NodeJS.Timeout;
-  //   return () => {
-  //     clearTimeout(timeout);
-  //     timeout = setTimeout(func, wait);
-  //   };
-  // }
+  if(loading){
+    return <LoaderElement />
+  }
 
   return (
-    <div
+    <div 
       className='
         w-full
         py-6
@@ -112,13 +99,34 @@ const Page = () => {
             projects?.map((project, i) => (
               <div key={i} className='w-full sm:w-[80%] my-5'>
                   <ProjectsSection 
+                    i={i.toString()}
                     project={project}
                   />
               </div>
             ))
           }
 
-          {loading && <p>Loading...</p>}
+          
+
+          <div className="mx-auto flex items-center justify-center">
+            <div
+              className="relative z-10 flex w-full cursor-pointer items-center overflow-hidden rounded-xl border border-slate-800 p-[1.5px]"
+            >
+                <div
+                  className="animate-rotate absolute inset-0 h-full w-full rounded-full bg-[conic-gradient(#0ea5e9_20deg,transparent_120deg)]"
+                ></div>
+                <div className="relative z-20 flex w-full rounded-[0.60rem] p-1">
+                    <Button disabled={!hasMore}
+                      onClick={()=> setSkip(prevSkip => prevSkip + 1)}
+                        className='bg-white text-black hover:bg-neutral-300 hover:text-neutral-700'
+                      >
+                      {loadingMore? "Loading More..." : "Load More Projects"}
+                    </Button>
+                </div>
+            </div>
+          </div>
+
+          {loadingMore && <LoadMoreElement />}
           {error && <p>Error: {error}</p>}
 
         </div>

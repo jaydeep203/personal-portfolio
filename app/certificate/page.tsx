@@ -6,7 +6,7 @@ import getCertificates from '../actions/getCertificates';
 import getUser from '../actions/getUser';
 import Title from './components/Title';
 
-
+export const revalidate = 0;
 
 const page = async() => {
     const certificates = await getCertificates();

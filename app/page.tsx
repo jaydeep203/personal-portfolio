@@ -83,6 +83,7 @@ export default async function Home() {
 
         
           <ProjectsSection
+            i="0"
             isButton={true}
             project={randomProject}
           />
